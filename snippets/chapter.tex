@@ -1,0 +1,20 @@
+\documentclass[onecolumn,a4paper,12pt,twoside,openright]{report}
+
+\input{preamble}
+
+\input{chapter_2_defin}
+
+\renewcommand\chapter[1]{%
+  \refstepcounter{chapter}%
+  \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+  \sectionmark{#1}}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\input{frontmatter/ctl}
+
+\input{chapter_2}
+
+\end{document}

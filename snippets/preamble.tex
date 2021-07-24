@@ -1,0 +1,72 @@
+% Fonts and language
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+
+% Page margins 
+\usepackage[scale=1.0,layoutoffset=0pt,ignoremp,includehead,bindingoffset=0pt]{geometry}
+\geometry{left=4cm,
+	right=2.5cm,
+	top=2cm,
+	bottom=4cm}
+
+\usepackage{pdflscape}
+
+% Line spacing
+\usepackage{setspace}
+\onehalfspacing
+
+% Headers
+\usepackage{fancyhdr}
+
+% Framed quotes
+\usepackage{framed}
+
+% Images
+\usepackage{graphics}
+\usepackage{graphicx}
+\immediate\write18{./graphics_path.sh > graphics_path.tex}
+\input{graphics_path.tex}
+
+% Automatically centre images (floats)
+\makeatletter
+	\g@addto@macro\@floatboxreset\centering 
+\makeatother
+
+% Compound figures
+\usepackage{float}
+\usepackage{subfig}
+
+% Tables
+\usepackage{multirow}
+\usepackage{longtable}
+
+% Bibliography
+\usepackage[style=authoryear, natbib=true]{biblatex}
+\addbibresource{main.bib}
+
+% Text 
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{#1}}}
+
+\usepackage[titletoc]{appendix}
+
+\usepackage[hidelinks]{hyperref}
+\hypersetup{linktoc=all}
+
+\addto\captionsUKenglish{
+  \renewcommand{\contentsname}
+    {Table of Contents}
+}
+
+\renewcommand*{\bibfont}{\footnotesize}	
+
+% Common definitions
+\input{definitions}
+

@@ -1,0 +1,66 @@
+\documentclass[onecolumn,a4paper,12pt,twoside,openright]{report}
+
+\input{snippets/preamble.tex}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\input{frontmatter/ttl}
+
+\pagenumbering{roman}
+
+\input{frontmatter/abs}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\input{frontmatter/lay}
+\addcontentsline{toc}{chapter}{Lay Summary}
+
+\input{frontmatter/dec}
+\addcontentsline{toc}{chapter}{Author Declaration}
+\clearpage{}
+
+\input{frontmatter/ack}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+\tableofcontents{}
+\addcontentsline{toc}{chapter}{Table of Contents}
+
+\listoffigures{}
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables{}
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\input{frontmatter/abb}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\clearpage
+
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\lhead[\leftmark]{}
+\rhead[]{\leftmark}
+
+\input{chapters/introduction/introduction.tex}
+
+\input{chapters/background/background.tex}
+
+\input{chapters/befr/befr.tex}
+
+\input{chapters/phen/phen.tex}
+
+\input{chapters/tls/tls.tex}
+
+\input{chapters/bicuar/bicuar.tex}
+
+\input{chapters/discussion/discussion.tex}
+
+\input{chapters/legacy/legacy.tex}
+
+\begin{appendices}
+\input{chapters/dpm/dpm.tex}
+
+\end{appendices}
+
+\end{document}
+
