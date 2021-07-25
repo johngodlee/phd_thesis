@@ -1,20 +1,14 @@
 % Nested directory structure
 \usepackage{import}
 
+% Landscape pages
+\usepackage{pdflscape}
+
 % Fonts and language
 \usepackage[utf8]{inputenc}
 \usepackage[UKenglish]{babel}
 \usepackage{csquotes}
 \usepackage[T1]{fontenc}
-
-% Page margins 
-\usepackage[scale=1.0,layoutoffset=0pt,ignoremp,includehead,bindingoffset=0pt]{geometry}
-\geometry{left=4cm,
-	right=2.5cm,
-	top=2cm,
-	bottom=4cm}
-
-\usepackage{pdflscape}
 
 % Line spacing
 \usepackage{setspace}
@@ -25,7 +19,6 @@
 
 % Images
 \usepackage{graphicx}
-\graphicspath{img/}
 
 % Automatically centre images (floats)
 \makeatletter
@@ -73,8 +66,18 @@
     {Table of Contents}
 }
 
+% Supplementary materials
+\newcommand{\beginsupplement}{%
+	\setcounter{table}{0}
+	\renewcommand{\thetable}{S\arabic{table}}%
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+	}
+
 \renewcommand*{\bibfont}{\footnotesize}	
 
 % Common definitions
 \input{snippets/definitions}
+
+\DeclareUnicodeCharacter{0301}{XXXXXXXXXXXXXXXXXX}
 

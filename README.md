@@ -45,7 +45,9 @@ This directory contains a directory structure and associated styling files for a
 `snippets/` contains bits of code used to compile the thesis:
 
 * `preamble.tex` contains all the preamble material used for the thesis. It is also called by `chapter.tex`.
-* `chapter.tex` contains a skeleton file to create individually formatted chapters. 
+* `geometry.tex` defines page geometry for the thesis
+* `geometry_nice.tex` defines page geometry for the standalone chapters
+* `chapter.tex` contains a skeleton to create individually formatted chapters. 
 * `definitions.tex` contains thesis-level LaTeX variables: thesis title, author name, thesis date, etc.
 
 ![Directory and dependency structure for `main.tex`](drawio/struc.png)
@@ -62,7 +64,7 @@ Various packages are used to create this template:
 
 `pdflscape` allows landscape pages with `\begin{landscape}`.
 
-`setspace` sets line spacing to 1.5.
+`setspace` sets line spacing to 1.5 with `\onehalfspacing{}`
 
 `fancyhdr` sets page headers for chapters with the following settings:
 

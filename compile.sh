@@ -49,8 +49,8 @@ while getopts "cpt" opt; do
 			cp main.bib $tmpdir
 
 			# Insert includes into chapter template
-			sed -i "5s|{.*}|{${defbase}}|" $tmpdir/chapter.tex
-			sed -i "18s|{.*}|{${chpbase}}|" $tmpdir/chapter.tex
+			sed -i "7s|{.*}|{${defbase}}|" $tmpdir/chapter.tex
+			sed -i "20s|{.*}|{${chpbase}}|" $tmpdir/chapter.tex
 
 			# Create output directory
 			mkdir -p $tmpdir/out
