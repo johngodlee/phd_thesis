@@ -8,9 +8,6 @@ if [ "$#" == 0 ]; then
 	exit 1
 fi
 
-# Create graphics path
-./graphics_path.sh
-
 # Ensure out dir exists
 mkdir -p out
 
@@ -25,21 +22,47 @@ while getopts "cpt" opt; do
     	echo "Compiling chapters"
 		chapters="$(find chapters -type d -depth 1)"
 		for i in $chapters ; do
+			# Create temp dir
+			tmpdir=$(mktemp -d)
+			
+			# Define Chapter name
 			chpbase="${i##*/}"
-			defbase="${chpbase}_defin"
-			inputs="$(find $i -type f -depth 1)"
-			snippets="$(find snippets -type f -depth 1)"
-			cp $snippets .
-			cp $inputs .
-			cp -r $i/includes .
-			sed -i "5s|{.*}|{${defbase}}|" chapter.tex
-			sed -i "18s|{.*}|{${chpbase}}|" chapter.tex
-			latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -jobname=out/${chpbase} -bibtex chapter.tex
-			inputsbase="$(for i in $inputs ; do echo ${i##*/} ; done)"
-			snippetsbase="$(for i in $snippets; do echo ${i##*/} ; done)"
-			rm ${inputsbase##*/}
-			rm ${snippetsbase##*/}
-			rm includes
+
+			# Define chapter title and main tex file
+			defbase="${chpbase}_defin.tex"
+			texbase="${chpbase}.tex"
+
+			# Copy chapter title and main tex file
+			cp $i/$defbase $tmpdir
+			cp $i/$texbase $tmpdir
+
+			# Copy images and includes
+			test -d $i/inc && cp -r $i/inc $tmpdir
+			test -d $i/img && cp -r $i/img $tmpdir
+
+			# Copy common snippets and frontmatter
+			cp -r snippets $tmpdir
+			cp snippets/chapter.tex $tmpdir
+			cp -r frontmatter $tmpdir
+
+			# Copy bib file 
+			cp main.bib $tmpdir
+
+			# Insert includes into chapter template
+			sed -i "5s|{.*}|{${defbase}}|" $tmpdir/chapter.tex
+			sed -i "18s|{.*}|{${chpbase}}|" $tmpdir/chapter.tex
+
+			# Create output directory
+			mkdir -p $tmpdir/out
+
+			# Run latex
+			latexmk -cd -pdf -pdflatex="pdflatex -interaction=nonstopmode" -jobname=out/${chpbase} -bibtex $tmpdir/chapter.tex
+
+			# Copy output to out directory
+			mv $tmpdir/out/* out 
+
+			# Remove tmp file
+			rm -r $tmpdir
 		done
 		;;
 	c)
@@ -54,6 +77,10 @@ done
 
 # Optionally clean intermediary files 
 if [ $clean = true ] ; then
+    echo "Cleaning intermediate tex files"
 	cd out
 	latexmk -c *.pdf
 fi
+
+# If script fails, remove any temp directories 
+trap 'rm -rf -- "$tmpdir"' EXIT

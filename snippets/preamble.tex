@@ -1,3 +1,6 @@
+% Nested directory structure
+\usepackage{import}
+
 % Fonts and language
 \usepackage[utf8]{inputenc}
 \usepackage[UKenglish]{babel}
@@ -20,14 +23,9 @@
 % Headers
 \usepackage{fancyhdr}
 
-% Framed quotes
-\usepackage{framed}
-
 % Images
-\usepackage{graphics}
 \usepackage{graphicx}
-\immediate\write18{./graphics_path.sh > graphics_path.tex}
-\input{graphics_path.tex}
+\graphicspath{img/}
 
 % Automatically centre images (floats)
 \makeatletter
@@ -43,7 +41,16 @@
 \usepackage{longtable}
 
 % Bibliography
-\usepackage[style=authoryear, natbib=true]{biblatex}
+\usepackage[natbib, 
+	style=authoryear, 
+	uniquename=false, 
+	uniquelist=false,
+	maxcitenames=2, 
+	mincitenames=1, 
+	minbibnames=10, 
+	maxbibnames=10, 
+	backend=biber]{biblatex}
+\renewcommand*\finalnamedelim{\addspace\&\space}
 \addbibresource{main.bib}
 
 % Text 
@@ -51,9 +58,10 @@
 \usepackage{siunitx}
 \usepackage{amsmath}
 \usepackage{xcolor}
+\usepackage{fmtcount}
 
 \newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
-\newcommand{\TODO}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
 
 \usepackage[titletoc]{appendix}
 
@@ -68,5 +76,5 @@
 \renewcommand*{\bibfont}{\footnotesize}	
 
 % Common definitions
-\input{definitions}
+\input{snippets/definitions}
 
