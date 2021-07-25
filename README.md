@@ -48,7 +48,7 @@ This directory contains a directory structure and associated styling files for a
 * `chapter.tex` contains a skeleton file to create individually formatted chapters. 
 * `definitions.tex` contains thesis-level LaTeX variables: thesis title, author name, thesis date, etc.
 
-![Directory and dependency structure for `main.tex`](drawio/struc.pdf)
+![Directory and dependency structure for `main.tex`](drawio/struc.png)
 
 # Packages
 
