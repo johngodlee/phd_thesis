@@ -94,7 +94,7 @@ Various packages are used to create this template:
 
 `biblatex` handles referencing.
 
-`textcomp`, `siunitx`, and `amsmath` provide many symbols and extended text characters.
+`textcomp`, `siunitx`, `amsmath`, and `amssymb` provide many symbols and extended text characters.
 
 `fmtcount` converts numbers into text, useful for including variable output from R scripts.
 

@@ -52,6 +52,9 @@ while getopts "cpt" opt; do
 			sed -i "7s|{.*}|{${defbase}}|" $tmpdir/chapter.tex
 			sed -i "20s|{.*}|{${chpbase}}|" $tmpdir/chapter.tex
 
+			# Remove chapter title 
+			sed -i '/^\\chapter\[\\chaptertitle\]{\\chaptertitle}/d' $tmpdir/${texbase}
+
 			# Create output directory
 			mkdir -p $tmpdir/out
 
