@@ -12,7 +12,8 @@ This directory contains a directory structure and associated styling files for a
 
 * `-c` - clean intermediate LaTeX files
 * `-t` - compile thesis
-* `-p` - compile individual chapters
+* `-p` - compile all individual chapters
+* `-s` - compile a named chapter by referencing its directory. e.g. `./compile.sh -s chapters/introduction`
 
 `main.tex` contains the top-level `.tex` skeleton file which calls all other files. Can be altered to include new chapters, or to change the order of chapters.
 
@@ -26,7 +27,8 @@ This directory contains a directory structure and associated styling files for a
 \begin{refsection}
 
 \input{chaptername_defin.tex}
-\chapter{\chaptertitle}
+\chapter[\chaptertitle]{\chaptertitle}
+\chaptermark{Introduction}
 \label{ch:chaptername}
 
 % CONTENT HERE
@@ -105,7 +107,6 @@ Various packages are used to create this template:
 `xcolor` allows using colours to highlight text.
 
 `appendix` improves handling of appendices per chapter
-
 
 # Notable mentions
 
