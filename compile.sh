@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Define usage function
 usage() {
-	echo "Usage: $0 [-c (clean) -p (chapter) -t (thesis)]" 
+	echo "Usage: $0 [-c (clean) -p (all chapters) -s (single chapter) -t (thesis) -f (formatting, 0=submission, 1=nice)]" 
 	exit 1
 }
 
@@ -10,6 +10,11 @@ usage() {
 if [ "$#" == 0 ]; then
 	usage
 fi
+
+# Define latexmk function
+pdf () {
+	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=$2 -pretex="\def\nicefmt{$3}" -usepretex $1
+}
 
 # Define chapter compilation function
 chp_compile() {
@@ -40,8 +45,8 @@ chp_compile() {
 	cp main.bib $tmpdir
 
 	# Insert includes into chapter template
-	sed -i "7s|{.*}|{${defbase}}|" $tmpdir/chapter.tex
-	sed -i "20s|{.*}|{${chpbase}}|" $tmpdir/chapter.tex
+	sed -i "5s|{.*}|{${defbase}}|" $tmpdir/chapter.tex
+	sed -i "18s|{.*}|{${chpbase}}|" $tmpdir/chapter.tex
 
 	# Remove chapter title 
 	sed -i '/^\\chapter\[\\chaptertitle\]{\\chaptertitle}/d' $tmpdir/${texbase}
@@ -50,7 +55,7 @@ chp_compile() {
 	mkdir -p $tmpdir/out
 
 	# Run latex
-	latexmk -cd -pdf -pdflatex="pdflatex -interaction=nonstopmode" -jobname=out/${chpbase} -bibtex $tmpdir/chapter.tex
+	pdf $tmpdir/chapter.tex out/${chpbase} $2
 
 	# Copy output to out directory
 	mv $tmpdir/out/* out 
@@ -59,42 +64,80 @@ chp_compile() {
 	rm -r $tmpdir
 }
 
-# Ensure out dir exists
+# Ensure out directory exists
 mkdir -p out
 
+# Default flag values
+fmt=0
+thesis=0
+chapters=0
+single="0"
+clean=0
+
 # Parse flags
-while getopts ":cpts:" opt; do 
-  case "${opt}" in                         
-    t)
-    	echo "Compiling thesis"
-		latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -jobname=out/main -bibtex main.tex 
+while getopts ":f:tps:c" opt; do
+	case "${opt}" in
+  	f) 
+  		fmt=$OPTARG
+  		;;
+	t)
+		thesis=1
+		;;
+	p)
+		chapters=1
 		;;
 	s)
-		echo "Compiling a chapter"
-		chapter=$(echo $OPTARG)
-		chp_compile $chapter
-		;;
-    p)
-    	echo "Compiling all chapters"
-		chapters="$(find chapters -type d -depth 1)"
-		for i in $chapters ; do
-			chp_compile $i
-		done
+		single=$OPTARG
 		;;
 	c)
-    	echo "Cleaning intermediate tex files"
-		cd out
-		latexmk -c *.pdf
+		clean=1
 		;;
 	\?)
 		echo "Invalid option: -$OPTARG" 
 		usage
 		;;
-    *) 
+	*) 
     	usage
 		;;
-  esac
+	esac
 done
+
+# Run compilation functions based on flags
+
+# Clean intermediate
+if [ "$clean" -eq 1 ]; then
+	echo "Cleaning intermediate tex files"
+	cd out
+	latexmk -c *.pdf
+fi
+
+# Thesis
+if [ "$thesis" -eq 1 ]; then
+	echo "Compiling thesis"
+	pdf main.tex out/main $fmt
+fi
+
+# All chapters
+if [ "$chapters" -eq 1 ]; then
+	echo "Compiling all chapters"
+	chapters="$(find chapters -type d -depth 1)"
+	for i in $chapters ; do
+		chp_compile $i $fmt
+	done
+fi
+
+# Single chapter
+if [ "$single" != "0" ]; then
+	echo "Compiling a single chapter"
+	chp_compile $single $fmt
+fi
+
+# Clean intermediate
+if [ "$clean" -eq 1 ]; then
+	echo "Cleaning intermediate tex files"
+	cd out
+	latexmk -c *.pdf
+fi
 
 # If script fails, remove any temp directories 
 trap 'rm -rf -- "$tmpdir"' EXIT

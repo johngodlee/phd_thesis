@@ -1,18 +1,21 @@
-% Nested directory structure
-\usepackage{import}
-
-% Landscape pages
-\usepackage{pdflscape}
+% Optional page layouts with different fonts and page layout
+% Default is submission
+\ifdefined\nicefmt
+	\ifcase\nicefmt\relax
+		\input{snippets/pagefmt_submission.tex}\or
+		\input{snippets/pagefmt_nice.tex}\else
+		\input{snippets/pagefmt_submission.tex}\fi
+\else
+	\input{snippets/pagefmt_submission.tex}
+\fi
 
 % Fonts and language
 \usepackage[utf8]{inputenc}
 \usepackage[UKenglish]{babel}
 \usepackage{csquotes}
-\usepackage[T1]{fontenc}
 
-% Line spacing
-\usepackage{setspace}
-\onehalfspacing
+% Handle a nested directory structure
+\usepackage{import}
 
 % Headers
 \usepackage{fancyhdr}
@@ -32,6 +35,9 @@
 % Tables
 \usepackage{multirow}
 \usepackage{longtable}
+
+% Landscape pages
+\usepackage{pdflscape}
 
 % Bibliography
 \usepackage[natbib, 
@@ -54,20 +60,24 @@
 \usepackage{xcolor}
 \usepackage{fmtcount}
 
+% Good tilde
 \newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
 
-\usepackage[titletoc]{appendix}
-
-\usepackage[hidelinks]{hyperref}
-\hypersetup{linktoc=all}
+% Increase space between figure number and description in LOF LOT
+\usepackage[subfigure, titles]{tocloft}
+\cftsetindents{figure}{0em}{3.5em}
+\cftsetindents{table}{0em}{3.5em}
 
 \addto\captionsUKenglish{
   \renewcommand{\contentsname}
     {Table of Contents}
 }
 
-% Supplementary materials
+% Thesis appendices
+\usepackage[titletoc]{appendix}
+
+% Supplementary materials per chapter
 \newcommand{\beginsupplement}{%
 	\setcounter{table}{0}
 	\renewcommand{\thetable}{\thechapter{}.S\arabic{table}}%
@@ -80,5 +90,6 @@
 % Common definitions
 \input{snippets/definitions}
 
-\DeclareUnicodeCharacter{0301}{XXXXXXXXXXXXXXXXXX}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{linktoc=all}
 

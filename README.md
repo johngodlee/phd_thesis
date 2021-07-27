@@ -4,16 +4,17 @@ author: John L. Godlee
 date: 2021-07-25
 ---
 
-This directory contains a directory structure and associated styling files for a University of Edinburgh PhD thesis, created by the author, in the School of GeoSciences.
+This directory contains a directory structure and associated styling files for a University of Edinburgh PhD thesis, created by the author, for a PhD in the School of GeoSciences.
 
 # Directory structure
 
-`compile.sh` is a shell script to generate the thesis and chapters. Takes 1:3 arguments: 
+`compile.sh` is a shell script to generate the thesis and chapters. The script requires `bash` and `latexmk`. It takes 1:5 arguments: 
 
-* `-c` - clean intermediate LaTeX files
+* `-c` - clean intermediate LaTeX files before and after compilation
 * `-t` - compile thesis
 * `-p` - compile all individual chapters
 * `-s` - compile a named chapter by referencing its directory. e.g. `./compile.sh -s chapters/introduction`
+* `-f` - sets the format argument, either `0` for submission (default), or `1` for a "nicer" layout 
 
 `main.tex` contains the top-level `.tex` skeleton file which calls all other files. Can be altered to include new chapters, or to change the order of chapters.
 
@@ -47,8 +48,8 @@ This directory contains a directory structure and associated styling files for a
 `snippets/` contains bits of code used to compile the thesis:
 
 * `preamble.tex` contains all the preamble material used for the thesis. It is also called by `chapter.tex`.
-* `geometry.tex` defines page geometry for the thesis
-* `geometry_nice.tex` defines page geometry for the standalone chapters
+* `pagefmt_submission.tex` defines page layout which adheres to thesis submission guidelines
+* `pagefmt_nice.tex` defines page layout for a "nicer" layout
 * `chapter.tex` contains a skeleton to create individually formatted chapters. 
 * `definitions.tex` contains thesis-level LaTeX variables: thesis title, author name, thesis date, etc.
 
