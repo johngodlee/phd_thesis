@@ -9,6 +9,7 @@
 \input{frontmatter/ttl}
 
 \pagenumbering{roman}
+\pagestyle{plain}
 
 \input{frontmatter/abs}
 \addcontentsline{toc}{chapter}{Abstract}
@@ -36,11 +37,13 @@
 \addcontentsline{toc}{chapter}{List of Abbreviations}
 \clearpage
 
+% Change page numbering style
 \pagenumbering{arabic}
-\pagestyle{fancy}
-\lhead[\leftmark]{}
-\rhead[]{\leftmark}
 
+% Headers
+\pagestyle{fancy}
+
+% Chapters
 \import{chapters/introduction/}{introduction.tex}
 
 \import{chapters/background/}{background.tex}

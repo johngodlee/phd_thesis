@@ -1,15 +1,5 @@
-% Optional page layouts with different fonts and page layout
-% Default is submission
-\ifdefined\nicefmt
-	\ifcase\nicefmt\relax
-		\input{snippets/pagefmt_submission.tex}\or
-		\input{snippets/pagefmt_nice.tex}\else
-		\input{snippets/pagefmt_submission.tex}\fi
-\else
-	\input{snippets/pagefmt_submission.tex}
-\fi
 
-% Fonts and language
+% Language
 \usepackage[utf8]{inputenc}
 \usepackage[UKenglish]{babel}
 \usepackage{csquotes}
@@ -20,17 +10,15 @@
 % Headers
 \usepackage{fancyhdr}
 
-% Images
+% Figures 
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
 
 % Automatically centre images (floats)
 \makeatletter
 	\g@addto@macro\@floatboxreset\centering 
 \makeatother
-
-% Compound figures
-\usepackage{float}
-\usepackage{subfig}
 
 % Tables
 \usepackage{multirow}
@@ -52,6 +40,8 @@
 \renewcommand*\finalnamedelim{\addspace\&\space}
 \addbibresource{main.bib}
 
+\renewcommand*{\bibfont}{\footnotesize}	
+
 % Text 
 \usepackage{textcomp}
 \usepackage{siunitx}
@@ -60,7 +50,7 @@
 \usepackage{xcolor}
 \usepackage{fmtcount}
 
-% Good tilde
+% Better tilde
 \newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
 
@@ -69,15 +59,16 @@
 \cftsetindents{figure}{0em}{3.5em}
 \cftsetindents{table}{0em}{3.5em}
 
+% Rename Table of Contents
 \addto\captionsUKenglish{
   \renewcommand{\contentsname}
     {Table of Contents}
 }
 
-% Thesis appendices
+% Appendices
 \usepackage[titletoc]{appendix}
 
-% Supplementary materials per chapter
+% Supplementary materials per chapter prefixed by "S"
 \newcommand{\beginsupplement}{%
 	\setcounter{table}{0}
 	\renewcommand{\thetable}{\thechapter{}.S\arabic{table}}%
@@ -85,11 +76,25 @@
 	\renewcommand{\thefigure}{\thechapter{}.S\arabic{figure}}%
 	}
 
-\renewcommand*{\bibfont}{\footnotesize}	
-
 % Common definitions
 \input{snippets/definitions}
 
+% Don't reset page numbers after abstracts
+\usepackage{etoolbox}
+\patchcmd{\abstract}{\titlepage}{\clearpage}{}{}
+\patchcmd{\abstract}{\endtitlepage}{\clearpage}{}{}
+
+% Optional page layouts with different fonts and page layout
+% Default is pagefmt_submission.tex
+\ifdefined\nicefmt
+	\ifcase\nicefmt\relax
+		\input{snippets/pagefmt_submission.tex}\or
+		\input{snippets/pagefmt_nice.tex}\else
+		\input{snippets/pagefmt_submission.tex}\fi
+\else
+	\input{snippets/pagefmt_submission.tex}
+\fi
+
+% Links
 \usepackage[hidelinks]{hyperref}
 \hypersetup{linktoc=all}
-

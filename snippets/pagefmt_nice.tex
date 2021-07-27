@@ -13,3 +13,10 @@
 
 % Font 
 \usepackage[T1]{fontenc}
+
+\pagestyle{fancyplain}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[LE,RO]{\fancyplain{}{\leftmark}}
+\fancyfoot[CE,CO]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}

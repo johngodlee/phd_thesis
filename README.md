@@ -67,19 +67,13 @@ Various packages are used to create this template:
 
 `pdflscape` allows landscape pages with `\begin{landscape}`.
 
-`setspace` sets line spacing to 1.5 with `\onehalfspacing{}`
+`setspace` sets line spacing.
 
-`fancyhdr` sets page headers for chapters with the following settings:
+`fancyhdr` sets page headers and footers.
 
-```tex
-\pagestyle{fancy}
-\lhead[\leftmark]{}
-\rhead[]{\leftmark}
-```
+`graphicx` for including images.
 
-`graphicx` for including images
-
-`float` and `subfig` allow for compound figures:
+`float` and `subfig` allow for compound figures, e.g.:
 
 ```tex
 \begin{figure}[H]
@@ -107,7 +101,12 @@ Various packages are used to create this template:
 
 `xcolor` allows using colours to highlight text.
 
-`appendix` improves handling of appendices per chapter
+`appendix` improves handling of appendices per chapter.
+
+# Tips on LaTeX thesis writing
+
+* Use `[tb]` float positioning if the figure is small enough to fit on a page with other figures, or `[p]` if it needs its own page.
+* Use `\begin{abstract}...\end{abstract}` rather than `\abstract{}`, for writing abstracts.
 
 # Notable mentions
 
@@ -117,3 +116,4 @@ Inspiration for this template came from other projects:
 * [Writing a PhD Thesis in LaTeX | Johannes Miocic](https://jojomio.wordpress.com/2014/02/14/writing-a-phd-thesis-in-latex/) - A more recent attempt, from 2015, also with links to other PhD thesis LaTeX projects.
 * [ryklith/ue-phd-thesis: Template for a PhD thesis at the University of Edinburgh](https://github.com/ryklith/ue-phd-thesis)
 * [maxbiostat/PhD_Thesis: My PhD Thesis - Institute of Evolutionary Biology, University of Edinburgh, 2018](https://github.com/maxbiostat/PhD_Thesis)
+
