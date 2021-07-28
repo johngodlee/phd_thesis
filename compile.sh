@@ -22,19 +22,20 @@ chp_compile() {
 	tmpdir=$(mktemp -d)
 
 	# Define Chapter name
-	chpbase="${1##*/}"
+	dir=${1%/}
+	chpbase="${dir##*/}"
 
 	# Define chapter title and main tex file
 	defbase="${chpbase}_defin.tex"
 	texbase="${chpbase}.tex"
 
 	# Copy chapter title and main tex file
-	cp $1/$defbase $tmpdir
-	cp $1/$texbase $tmpdir
+	cp $dir/$defbase $tmpdir
+	cp $dir/$texbase $tmpdir
 
 	# Copy images and includes
-	test -d $1/inc && cp -r $1/inc $tmpdir
-	test -d $1/img && cp -r $1/img $tmpdir
+	test -d $dir/inc && cp -r $dir/inc $tmpdir
+	test -d $dir/img && cp -r $dir/img $tmpdir
 
 	# Copy common snippets and frontmatter
 	cp -r snippets $tmpdir
