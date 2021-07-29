@@ -69,12 +69,12 @@
 \usepackage[titletoc]{appendix}
 
 % Supplementary materials per chapter prefixed by "S"
-\newcommand{\beginsupplement}{%
+\newenvironment{supplement}{%
 	\setcounter{table}{0}
 	\renewcommand{\thetable}{\thechapter{}.S\arabic{table}}%
 	\setcounter{figure}{0}
 	\renewcommand{\thefigure}{\thechapter{}.S\arabic{figure}}%
-	}
+}{}
 
 % Common definitions
 \input{snippets/definitions}
@@ -95,18 +95,22 @@
 	\input{snippets/pagefmt_submission.tex}
 \fi
 
+% Author contributions formatted block
 \newcommand{\authorcontributions}[1]{%
 \vspace{6pt}\noindent{\selectfont\textbf{Author Contributions:} {#1}\par}
 }
 
+% Paper authors formatted block
 \newcommand{\paperauthors}[1]{%
 \vspace{6pt}\noindent{\selectfont\textbf{Authors:} {#1}\par}
 }
 
+% Paper author affiliations formatted block
 \usepackage{enumitem}
 \newlist{paperaffil}{enumerate}{1}
 \setlist[paperaffil]{label=\arabic*., leftmargin=*, topsep=6pt, itemsep=-1ex}
 
+% Published paper full citation
 \newcommand{\papercite}[1]{%
 \vspace{6pt}\noindent{\fullcite{#1}\par}
 }

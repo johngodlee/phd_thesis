@@ -14,7 +14,7 @@ This directory contains a directory structure and associated styling files for a
 * `-t` - compile thesis
 * `-p` - compile all individual chapters
 * `-s` - compile a named chapter by referencing its directory. e.g. `./compile.sh -s chapters/introduction`
-* `-f` - sets the format argument, either `0` for submission (default), or `1` for a "nicer" layout 
+* `-f` - sets the format argument, either `0` for submission (default), or `1` for a "nicer" layout with smaller margins, a serif'ed font, and single spaced lines.
 
 `main.tex` contains the top-level `.tex` skeleton file which calls all other files. Can be altered to include new chapters, or to change the order of chapters.
 
@@ -22,7 +22,7 @@ This directory contains a directory structure and associated styling files for a
 
 `img/` contains common images used in the thesis.
 
-`chapters/` contains subdirectories each referring to a thesis chapter or an appendix. The directory name of each chapter should match the name of the main `.tex` file for that chapter. Each chapter directory should have a `*_defin.tex` where the asterisk expands to the directory name, which defines the `\chaptertitle{}` variable for that chapter. Chapters can have their own `img/` (images) and `inc/` (included `.tex` files) directories which will be incorporated into the thesis and standalone chapters. Chapter `.tex` content should be wrapped in the following boilerplate, to ensure that references come at the end of the chapter, rather than the end of the thesis:
+`chapters/` contains subdirectories each referring to a thesis chapter or an appendix. The directory name of each chapter should match the name of the main `.tex` file for that chapter. Each chapter directory should have a `*_defin.tex` where the asterisk expands to the directory name, which defines the `\chaptertitle{}` variable for that chapter. Chapters can have their own `img/` (images) and `inc/` (included `.tex` files, e.g. tables) directories which will be incorporated into the thesis and standalone chapters. Chapter `.tex` content should be wrapped in the following boilerplate, to ensure that references come at the end of the chapter, rather than the end of the thesis:
 
 ```tex
 \begin{refsection}
@@ -103,10 +103,17 @@ Various packages are used to create this template:
 
 `appendix` improves handling of appendices per chapter.
 
-# Tips on LaTeX thesis writing
+`enumitem` for custom lists such as author affiliations at the start of chapters adapted from published articles.
 
-* Use `[tb]` float positioning if the figure is small enough to fit on a page with other figures, or `[p]` if it needs its own page.
-* Use `\begin{abstract}...\end{abstract}` rather than `\abstract{}`, for writing abstracts.
+# Extras
+
+I've added some commands to format information to be displayed at the start of chapters adapted from peer-reviewed articles. `\paperauthors{}` and `\authorcontributions{}` simply format author names and author contributions, prepending with "__Author contributions__" for example, and adding some aesthetic space around the block. `\papercite{}` wraps around `\fullcite{}` to provide a pretty bibliographic entry for published papers. `\paperaffil{}` defines a custom enumerated list to display author affiliations in a compact manner.
+
+`begin{supplement}...\end{supplement}` defines an environment for supplementary materials at the end of a chapter. It resets the figure and table counters to zero and prepends "S" to each figure and table number.
+
+The `report` class does a ridiculous thing where the page count is reset after every `\begin{abstract}...\end{abstract}`. This might be OK if every chapter has an abstract but not all of mine did. I used the `etoolbox` package to patch the `\abstract{}` command to stop this happening.
+
+The basic `\textasciitilde{}` sites too high on the line. I defined `\textapprox{}` which produces a more aesthetically pleasing tilde.
 
 # Notable mentions
 
