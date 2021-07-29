@@ -95,6 +95,22 @@
 	\input{snippets/pagefmt_submission.tex}
 \fi
 
+\newcommand{\authorcontributions}[1]{%
+\vspace{6pt}\noindent{\selectfont\textbf{Author Contributions:} {#1}\par}
+}
+
+\newcommand{\paperauthors}[1]{%
+\vspace{6pt}\noindent{\selectfont\textbf{Authors:} {#1}\par}
+}
+
+\usepackage{enumitem}
+\newlist{paperaffil}{enumerate}{1}
+\setlist[paperaffil]{label=\arabic*., leftmargin=*, topsep=6pt, itemsep=-1ex}
+
+\newcommand{\papercite}[1]{%
+\vspace{6pt}\noindent{\fullcite{#1}\par}
+}
+
 % Links
 \usepackage[hidelinks]{hyperref}
 \hypersetup{linktoc=all}

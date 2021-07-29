@@ -6,5 +6,6 @@ drawio() {
 
 drawio drawio/befr_theory.drawio img/befr_theory.pdf
 drawio drawio/saf_theory.drawio img/saf_theory.pdf
+drawio drawio/plas_befr.drawio img/plas_befr.pdf
 
 /Applications/Inkscape.app/Contents/MacOS/inkscape --export-pdf=img/befr_graph.pdf drawio/graph.eps

@@ -4,12 +4,12 @@
 
 \input{chapter_2_defin}
 
-\renewcommand\chapter[1]{%
-  \refstepcounter{chapter}%
-  \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
-  \sectionmark{#1}}
-
+% Don't number sections
 \setcounter{secnumdepth}{0}
+
+% Only short chapter name in header
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhead[LE,RO]{\fancyplain{}{\MakeUppercase{\leftmark}}}
 
 \begin{document}
 
