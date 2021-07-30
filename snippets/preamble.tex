@@ -80,9 +80,16 @@
 \input{snippets/definitions}
 
 % Don't reset page numbers after abstracts
-\usepackage{etoolbox}
-\patchcmd{\abstract}{\titlepage}{\clearpage}{}{}
-\patchcmd{\abstract}{\endtitlepage}{\clearpage}{}{}
+\makeatletter
+\renewenvironment{abstract}{%
+  \clearpage
+  \null\vfil
+  \@beginparpenalty\@lowpenalty
+  \section*{\abstractname}
+  \@endparpenalty\@M
+  }%
+  {\par\vfil\null\clearpage}
+\makeatother
 
 % Optional page layouts with different fonts and page layout
 % Default is pagefmt_submission.tex

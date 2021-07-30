@@ -111,7 +111,7 @@ I've added some commands to format information to be displayed at the start of c
 
 `begin{supplement}...\end{supplement}` defines an environment for supplementary materials at the end of a chapter. It resets the figure and table counters to zero and prepends "S" to each figure and table number.
 
-The `report` class does a ridiculous thing where the page count is reset after every `\begin{abstract}...\end{abstract}`. This might be OK if every chapter has an abstract but not all of mine did. I used the `etoolbox` package to patch the `\abstract{}` command to stop this happening.
+The `report` class does a ridiculous thing where the page count is reset after every `\begin{abstract}...\end{abstract}`. This might be OK if every chapter has an abstract but not all of mine did. I patched the `\abstract{}` command to stop this happening, and also to display the abstract like an unnumbered section.
 
 The basic `\textasciitilde{}` sites too high on the line. I defined `\textapprox{}` which produces a more aesthetically pleasing tilde.
 
