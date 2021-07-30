@@ -3,12 +3,14 @@
 \input{snippets/preamble.tex}
 
 \begin{document}
+\microtypesetup{protrusion=true}
 
 \pagenumbering{gobble}
 
 \input{frontmatter/ttl}
 
 \pagenumbering{roman}
+
 \pagestyle{plain}
 
 \input{frontmatter/abs}
@@ -24,6 +26,7 @@
 \input{frontmatter/ack}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
+\microtypesetup{protrusion=false}
 \tableofcontents{}
 \addcontentsline{toc}{chapter}{Table of Contents}
 
@@ -36,6 +39,7 @@
 \input{frontmatter/abb}
 \addcontentsline{toc}{chapter}{List of Abbreviations}
 \clearpage
+\microtypesetup{protrusion=true}
 
 % Change page numbering style
 \pagenumbering{arabic}
