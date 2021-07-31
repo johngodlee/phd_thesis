@@ -65,16 +65,14 @@ In this study we present results of the tree diversity and woodland structure of
 We chose three areas of miombo woodland across the miombo ecoregion to compare with those in Bicuar National Park, Angola (S15.1$^\circ$, E14.8$^\circ$). The three sites were Gorongosa District in central Mozambique (S19.0$^\circ$, E34.2$^\circ$) \citep{Ryan2011}, Kilwa District in southern Tanzania (S9.0$^\circ$, E39.0$^\circ$) \citep{McNicol2018a}, and the Mikembo Natural Reserve in Katanga, southern Democratic Republic of Congo (DRC) (S11.5$^\circ$, E27.7$^\circ$) \citep{Muledi2017}. Within each of these woodland sites, multiple one hectare square plots had been installed previously to monitor biodiversity and biomass dynamics. In Katanga, a larger 10 ha plot was subdivided into ten 1 ha plots for this study. We used these previous censuses, collected between 2010 and 2019, to estimate tree biodiversity and woodland structure. Sites range in Mean Annual Precipitation (MAP) from 864 mm y\textsuperscript{-1} in Bicuar to 1115 mm y\textsuperscript{-1} in Katanga. Mean Annual Temperature ranges from \textapprox{}20.5 $^\circ$C in Bicuar and Katanga to \textapprox{}25.8 $^\circ$C in Kilwa (\autoref{bicuar:plot_map}, \autoref{bicuar:temp_precip}, \autoref{bicuar:group_descrip}).
 
 \begin{figure}[tb]
-\centering
 	\includegraphics[width=0.8\textwidth]{img/plot_map}
-	\caption{Locations of plots used in this study, with respect to the distribution of miombo woodland vegetation \citep{White1983}, shaded according to mean annual precipitation \citep{Fick2017}.}
+	\caption[Plot locations within miombo ecoregion]{Locations of plots used in this study, with respect to the distribution of miombo woodland vegetation \citep{White1983}, shaded according to mean annual precipitation \citep{Fick2017}.}
 	\label{bicuar:plot_map}
 \end{figure}
 
 \begin{figure}[tb]
-\centering
 	\includegraphics[width=0.8\textwidth]{img/temp_precip}
-	\caption{The plots used in this study within the climate space of the miombo ecoregion, estimated using the WorldClim dataset over the Miombo woodland vegetation extent with a pixel size of 30 arc seconds (0.86 km\textsuperscript{2} at the equator) \citep{Fick2017}. Note that the density colour scale is log-transformed for visual clarity.}
+	\caption[Plots in climate space of miombo ecoregion]{The plots used in this study within the climate space of the miombo ecoregion, estimated using the WorldClim dataset over the Miombo woodland vegetation extent with a pixel size of 30 arc seconds (0.86 km\textsuperscript{2} at the equator) \citep{Fick2017}. Note that the density colour scale is log-transformed for visual clarity.}
 	\label{bicuar:temp_precip}
 \end{figure}
 
@@ -96,7 +94,6 @@ Stem diameter was recorded at 1.3 m from the ground along the stem (diameter at 
 In addition to the one hectare plots across the miombo ecoregion, we compared the tree biodiversity of undisturbed areas of miombo woodland in Bicuar National Park with areas of disturbed woodland around the edge of the Park that had been previously farmed via shifting cultivation methods, and had since been abandoned and reclaimed within the Park boundaries \autoref{bicuar:bicuar_map}. We identified areas previously farmed with the help of park rangers and local residents who identified these areas from memory. We conducted \ndegradplots{} plot surveys of woodland diversity and structure in these areas with 20x50 m (0.1 ha) plots, and compared their diversity and structure with 20x50 m subsamples of the \nplotsbicuar{} one hectare plots within the Park interior. Like the one hectare plots, within these smaller 20x50 m plots we recorded the species and stem diameter of every tree stem $\ge$5 cm stem diameter.
 
 \begin{figure}[!h]
-\centering
 	\includegraphics[width=\textwidth]{img/bicuar_map}
 	\caption[Location of plots within Bicuar National Park]{Location of plots in Bicuar National Park, southwest Angola. The Park boundary is shown as a pink outline, according to \citet{WDPA2019}. One hectare undisturbed plots are shown as red points, while disturbed 20x50 m (0.1 hectare) plots are shown as blue points. The map background is a true colour composite satellite image generated using the Google Maps Static Maps API in the \texttt{ggmap} R package \citep{ggmap}.}
 	\label{bicuar:bicuar_map}
@@ -158,7 +155,6 @@ In Bicuar National Park we measured a total of \nbicuartrees{} trees within the 
 Alpha diversity in Bicuar National Park was low compared to other sites (\autoref{bicuar:div_box}). Mean $H'$ across plots in Bicuar National Park was \bicuarshannon{}. An ANOVA showed a significant difference in $H'$ among sites (\lmshannon{}, \autoref{bicuar:anova_table}), and a post-hoc Tukey's test showed that $H'$ in plots in Bicuar National Park was significantly different from those in DRC ($H'$ = \drcshannon{}, \tukeyshannonbicuardrc{}), Mozambique ($H'$ = \nhamshannon{}, \tukeyshannonbicuarnham{}) and Tanzania ($H'$ = \kilwashannon{}, \tukeyshannonbicuarkilwa{}). Variation in $H'$ is large within Bicuar National Park, with $H'$ ranging from \bicuarminshannon{} to \bicuarmaxshannon{}, but this was a similar range to other sites. In contrast, the range of species richness within Bicuar National Park was much lower than other sites, suggesting that the wide range in $H'$ was caused by variation in abundance evenness.
 
 \begin{figure}[!h]
-\centering
 	\includegraphics[width=\textwidth]{img/div_box}
 	\caption[Alpha diversity of plots within each site]{Variation of alpha diversity estimates and basal area among sites. Boxes bound the 1st and 3rd quartiles, with the median within the box. Whiskers represent 1.5 times the interquartile range plus or minus the 1st and 3rd quartiles, respectively. Values found beyond the whiskers are shown individually as points. Letter labels above each box refer to groupings from post-hoc Tukey's tests on the ANOVA of each diversity/structure variable. Sites sharing a letter do not differ significantly (p<0.05)}.
     \label{bicuar:div_box}
@@ -171,15 +167,22 @@ Alpha diversity in Bicuar National Park was low compared to other sites (\autore
 \subsection{Beta diversity}
 \label{bicuar:ssec:beta}
 
-The NMDS of plot species composition among one hectare plots was run with four dimensions. The stress value was \nmdsstress{}. Plot diversity in Bicuar National Park formed three distinct groups within axes 1 and 2 of the NMDS ordination. Bicuar plots 9, 13, and 15 were characterised by high abundances of \textit{Baikiaea plurijuga}, \textit{Baphia massaiensis} and \textit{Croton gratissimus}, according to species scores from the NMDS. Bicuar plots 4, 11, and 12 were characterised  by \textit{Brachystegia tamarindoides}, and \textit{Ochna pulchra}. The third group consisting of the remaining seven plots surprisingly had a species composition most similar to that of plots in the DRC group according to the NMDS, sharing the core miombo species of \textit{Julbernardia paniculata} and \textit{Pterocarpus angolensis}. This group of plots in Bicuar National Park was further characterised by the abundance of \textit{Pterocarpus lucens}, \textit{Strychnos pungens} and \textit{Bridelia mollis} however, which were not present in the DRC plots. All environmental factors fitted to the NMDS ordination correlated significantly with the grouping of plots (\hyperref[all_nmds_envfit]{Figure 4a}). MAT explained the most variation in plot position on the first two NMDS axes (\nmdsmat{}), followed by CWD (\nmdsmapsd{}), the seasonality of MAT (\nmdsmatsd{}) and MAP (\nmdsmap{}). Variation in MAP explained much of the difference among plots in Bicuar National Park versus those in Tanzania and Mozambique. Axes 3 and 4 showed a greater degree of overlap in species composition among plot groups, with plots from Bicuar National Park similar to a select few plots in both Tanzania and Mozambique (\hyperref[all_nmds_envfit_low]{Figure 4b}). Axis 3 distinguished plots in Bicuar NP from those in DRC, while plots from all geographic area overlapped in their distribution across Axis 4. Axes 3 and 4 largely reflected distribution patterns of less abundant species and not the dominant species in the vegetation.
-
+The NMDS of plot species composition among one hectare plots was run with four dimensions. The stress value was \nmdsstress{}. Plot diversity in Bicuar National Park formed three distinct groups within axes 1 and 2 of the NMDS ordination. Bicuar plots 9, 13, and 15 were characterised by high abundances of \textit{Baikiaea plurijuga}, \textit{Baphia massaiensis} and \textit{Croton gratissimus}, according to species scores from the NMDS. Bicuar plots 4, 11, and 12 were characterised  by \textit{Brachystegia tamarindoides}, and \textit{Ochna pulchra}. The third group consisting of the remaining seven plots surprisingly had a species composition most similar to that of plots in the DRC group according to the NMDS, sharing the core miombo species of \textit{Julbernardia paniculata} and \textit{Pterocarpus angolensis}. This group of plots in Bicuar National Park was further characterised by the abundance of \textit{Pterocarpus lucens}, \textit{Strychnos pungens} and \textit{Bridelia mollis} however, which were not present in the DRC plots. All environmental factors fitted to the NMDS ordination correlated significantly with the grouping of plots (\autoref{bicuar:nmds_envfit_12}). MAT explained the most variation in plot position on the first two NMDS axes (\nmdsmat{}), followed by CWD (\nmdsmapsd{}), the seasonality of MAT (\nmdsmatsd{}) and MAP (\nmdsmap{}). Variation in MAP explained much of the difference among plots in Bicuar National Park versus those in Tanzania and Mozambique. Axes 3 and 4 showed a greater degree of overlap in species composition among plot groups, with plots from Bicuar National Park similar to a select few plots in both Tanzania and Mozambique (\autoref{bicuar:nmds_envfit_34}). Axis 3 distinguished plots in Bicuar NP from those in DRC, while plots from all geographic area overlapped in their distribution across Axis 4. Axes 3 and 4 largely reflected distribution patterns of less abundant species and not the dominant species in the vegetation.
 
 \begin{figure}[p]
-	\centering
-	\subfloat[]{{\includegraphics[width=0.6\textwidth]{img/all_nmds_envfit}}\label{bicuar:all_nmds_envfit}}%
-    \qquad
-\subfloat[]{{\includegraphics[width=0.6\textwidth]{img/all_nmds_envfit_low}}\label{bicuar:all_nmds_envfit_low}}%
-\caption[NMDS ordination of species composition]{Environmental factors fitted to axes 1 and 2 (a), 3 and 4 (b) of the NMDS ordination of species composition of one hectare plots, showing the variation in plot species composition within and among sites. Diamonds are plot scores coloured by site. The lengths of arrows indicating environmental factor fits to the first two ordination axes are scaled by R\textsuperscript{2}. Arrows point in the direction of increasing values of that environmental factor. Note that Climatic Water Deficit (CWD) is expressed in more intuitively as the negative inverse of CWD, thus larger values indicate higher levels of CWD.}
+	\begin{subfigure}[h]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/all_nmds_envfit}
+		\caption{}
+		\label{bicuar:nmds_envfit_12}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[h]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/all_nmds_envfit_low}
+		\caption{}
+		\label{bicuar:nmds_envfit_34}
+	\end{subfigure}
+	\caption[NMDS ordination of species composition]{Environmental factors fitted to (\subref{bicuar:nmds_envfit_12}) axes 1 and 2, and (\subref{bicuar:nmds_envfit_34}) 3 and 4 of the NMDS ordination of species composition of one hectare plots, showing the variation in plot species composition within and among sites. Diamonds are plot scores coloured by site. The lengths of arrows indicating environmental factor fits to the first two ordination axes are scaled by R\textsuperscript{2}. Arrows point in the direction of increasing values of that environmental factor. Note that Climatic Water Deficit (CWD) is expressed in more intuitively as the negative inverse of CWD, thus larger values indicate higher levels of CWD.}
+	\label{bicuar:nmds_envfit}
 \end{figure}
 
 The pairwise S\o{}rensen coefficient of percentage similarity ($S_{S}$) showed that the species composition of plots in Bicuar National Park had low similarity with other sites in the study, sharing few species with other sites (\autoref{bicuar:site_pairs_js}). Similar to the NMDS, these results show that plots in Bicuar National Park are most similar to those found in DRC. 
@@ -194,7 +197,6 @@ Mean basal area of plots in Bicuar National Park was \babicuar{} m\textsuperscri
 The stem diameter abundance distribution in Bicuar National Park was comparable with other sites (\autoref{bicuar:stem_ab_dbh_bin}), albeit with fewer stems in each class. The slope of log mean stem size distribution among diameter bins was \dbhslopebicuar{} in Bicuar National Park, \dbhslopedrc{} in DRC, \dbhslopekilwa{} in Tanzania, and \dbhslopenham{} in Mozambique.  
 
 \begin{figure}[!h]
-\centering
 	\includegraphics[width=\textwidth]{img/stem_ab_dbh_bin_group}
 	\caption[Bar plots of stem diameter abundance within each site]{Ranked variation between plots in stem number within each site, with bars according to stem diameter class. Error bars are the mean $\pm$ 1 standard error. The dashed bar for the DRC 5-10 cm stem diameter class indicates that these measurements were estimated by extrapolating a linear regression of log stem abundance across the available stem diameter classes for DRC.}
 	\label{bicuar:stem_ab_dbh_bin}
@@ -208,14 +210,12 @@ There was a clear difference in the species composition of previously farmed dis
 Mean stem density was higher in disturbed plots (\stemdensdegrad{} stems ha\textsuperscript{-1}) than undisturbed plots (\stemdensbicuar{} stems ha\textsuperscript{-1}). The stem diameter abundance distribution in disturbed plots showed that many more stems were from the 5-10 cm diameter class in disturbed plots, while the disturbed plots had fewer stems in the 10-20 cm size class. Both disturbed and undisturbed plots had a similar abundance of stems in larger stem diameter classes (\autoref{bicuar:degrad_dbh_bin}). Multi-stemmed trees in disturbed plots tended to have a greater number of stems per tree (\multistemdegrad{}) than multi-stemmed trees in undisturbed plots (\multistembicuar{}).
 
 \begin{figure}[!h]
-\centering
 	\includegraphics[width=0.8\textwidth]{img/bicuar_degrad_nmds}
 	\caption[NMDS ordination of undisturbed and disturbed plots in Bicuar National Park]{NMDS ordination of species composition of 20x50 m (0.1 ha) plots showing plot scores as coloured diamonds located in disturbed (blue) and undisturbed (red) areas of woodland in Bicuar National Park.}
 	\label{bicuar:bicuar_degrad_nmds}
 \end{figure}
 
 \begin{figure}[!h]
-\centering
 	\includegraphics[width=0.8\textwidth]{img/degrad_box}
 	\caption[Variation in diversity and woodland structure among disturbed and undisturbed plots]{The variation in diversity and woodland structure between disturbed and undisturbed 20x50 m (0.1 ha) plots in Bicuar National Park. Boxes bound the 1st and 3rd quartiles, with the median within the box. Whiskers represent 1.5 times the interquartile range plus or minus the 1st and 3rd quartiles, respectively. Values found beyond the whiskers are shown individually as points.}
 	\label{bicuar:degrad_box}
@@ -226,7 +226,6 @@ Mean stem density was higher in disturbed plots (\stemdensdegrad{} stems ha\text
 \end{landscape}
 
 \begin{figure}[!h]
-\centering
 	\includegraphics[width=0.8\textwidth]{img/degrad_dbh_bin}
 	\caption[Stem diameter class variation among disturbed and undisturbed plots]{Ranked variation between disturbed and undisturbed plots in stem number, with bars according to stem diameter class. Error bars are the mean $\pm$ 1 standard error. Asterisks above pairs of bars refer to the p-values of Poisson general linear models which tested whether disturbed and undisturbed plots differ in the number of stems for different stem diameter classes (***<0.001, **<0.01, *<0.05, .<0.1).}
 	\label{bicuar:degrad_dbh_bin}

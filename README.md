@@ -73,21 +73,33 @@ Various packages are used to create this template:
 
 `graphicx` for including images.
 
-`float` and `subfig` allow for compound figures, e.g.:
+`float` for managing floats with `[H]`.
+
+`caption` for custom caption formatting.
+
+`subcaption` for compound figures:
 
 ```tex
 \begin{figure}[H]
-	\subfloat[]{{\includegraphics[width=0.3\textwidth]{img_file_a}}
-	\label{img_label_a}}%
-    \qquad
-	\subfloat[]{{\includegraphics[width=0.4\textwidth]{img_file_b}}
-	\label{img_label_b}}%
-	\caption{Caption text}
-	\label{img_label_all}
+	\begin{subfigure}[h]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img_a}
+		\caption{}
+		\label{img_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[h]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img_b}
+		\caption{}
+		\label{img_b}
+	\end{subfigure}
+	\caption{caption text}
+	\label{img_a_b}
 \end{figure}
 ```
 
-`multirow` and `longtable` allow for more flexible table formatting.
+`multirow` and `longtable` allow for more flexible table formatting, 
+
+`booktabs` subtly improves table aesthetics.
 
 `biblatex` handles referencing.
 
@@ -105,6 +117,8 @@ Various packages are used to create this template:
 
 `enumitem` for custom lists such as author affiliations at the start of chapters adapted from published articles.
 
+`microtype` magically improves text justification.
+
 # Extras
 
 I've added some commands to format information to be displayed at the start of chapters adapted from peer-reviewed articles. `\paperauthors{}` and `\authorcontributions{}` simply format author names and author contributions, prepending with "__Author contributions__" for example, and adding some aesthetic space around the block. `\papercite{}` wraps around `\fullcite{}` to provide a pretty bibliographic entry for published papers. `\paperaffil{}` defines a custom enumerated list to display author affiliations in a compact manner.
@@ -113,7 +127,7 @@ I've added some commands to format information to be displayed at the start of c
 
 The `report` class does a ridiculous thing where the page count is reset after every `\begin{abstract}...\end{abstract}`. This might be OK if every chapter has an abstract but not all of mine did. I patched the `\abstract{}` command to stop this happening, and also to display the abstract like an unnumbered section.
 
-The basic `\textasciitilde{}` sites too high on the line. I defined `\textapprox{}` which produces a more aesthetically pleasing tilde.
+The basic `\textasciitilde{}` sits too high on the line. I defined `\textapprox{}` which produces a more aesthetically pleasing tilde.
 
 # Notable mentions
 

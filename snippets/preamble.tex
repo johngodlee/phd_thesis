@@ -15,7 +15,8 @@
 % Figures 
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{subfig}
+\usepackage{caption}
+\usepackage[list=false]{subcaption}
 
 % Automatically centre images (floats)
 \makeatletter
@@ -39,6 +40,8 @@
 	mincitenames=1, 
 	minbibnames=10, 
 	maxbibnames=10, 
+	dashed=false,
+	giveninits=true,
 	backend=biber]{biblatex}
 \renewcommand*\finalnamedelim{\addspace\&\space}
 \addbibresource{main.bib}
@@ -58,7 +61,7 @@
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
 
 % Increase space between figure number and description in LOF LOT
-\usepackage[subfigure, titles]{tocloft}
+\usepackage[titles]{tocloft}
 \cftsetindents{figure}{0em}{3.5em}
 \cftsetindents{table}{0em}{3.5em}
 
