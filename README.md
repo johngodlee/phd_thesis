@@ -119,6 +119,21 @@ Various packages are used to create this template:
 
 `microtype` magically improves text justification.
 
+# Differences between 'submission' and 'nice' layouts
+
+* Margins
+	* Submission: left=4cm, right=2.5cm, top=2cm, bottom=4cm
+	* Nice: left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm
+* Font
+	* Submission: `helvet` (Helvetica-ish)
+	* Nice: `lmodern` (Computer-modern-ish)
+* Line spacing
+	* Submission: `singlespacing`
+	* Nice: `onehalfspacing`
+* Indent and parskip
+	* Submission: default
+	* Nice: `\parskip 0.15cm`, `\parindent 0cm`
+
 # Extras
 
 I've added some commands to format information to be displayed at the start of chapters adapted from peer-reviewed articles. `\paperauthors{}` and `\authorcontributions{}` simply format author names and author contributions, prepending with "__Author contributions__" for example, and adding some aesthetic space around the block. `\papercite{}` wraps around `\fullcite{}` to provide a pretty bibliographic entry for published papers. `\paperaffil{}` defines a custom enumerated list to display author affiliations in a compact manner.
@@ -126,8 +141,6 @@ I've added some commands to format information to be displayed at the start of c
 `begin{supplement}...\end{supplement}` defines an environment for supplementary materials at the end of a chapter. It resets the figure and table counters to zero and prepends "S" to each figure and table number.
 
 The `report` class does a ridiculous thing where the page count is reset after every `\begin{abstract}...\end{abstract}`. This might be OK if every chapter has an abstract but not all of mine did. I patched the `\abstract{}` command to stop this happening, and also to display the abstract like an unnumbered section.
-
-The basic `\textasciitilde{}` sits too high on the line. I defined `\textapprox{}` which produces a more aesthetically pleasing tilde.
 
 # Notable mentions
 

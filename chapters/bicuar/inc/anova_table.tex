@@ -1,29 +1,34 @@
 \begin{table}[!htbp]
+	\sisetup{
+		input-symbols = (),
+		table-space-text-post = ***,
+		table-align-text-post = false,
+		group-digits = false}
 	\caption[ANOVA statistics among sites]{Results of ANOVA tests for alpha diversity metrics and plot basal area, among the four sites. Mean values for each site with standard errors in parentheses are shown. Asterisks indicate the p-value of individual sites in each ANOVA (***<0.001, **<0.01, *<0.05, .<0.1).} 
 	\label{bicuar:anova_table} 
-\begin{tabular}{lcccc} 
+	\begin{tabular}{lS[table-format=2.3]S[table-format=-2.3]S[table-format=2.3]S[table-format=2.3]} 
 \toprule
  & \multicolumn{4}{c}{Dependent variable} \\ 
 \cmidrule(lr){2-5} 
-& Species richness & Basal area & Shannon ($H'$) & Shannon equit. ($E_{H}$) \\ 
+ & {Species richness} & {Basal area} & {Shannon ($H'$)} & {Shannon equit. ($E_{H}$)} \\ 
 \midrule
- DRC & 27.920$^{***}$ & 4.175$^{***}$ & 1.055$^{***}$ & 0.080 \\ 
+ DRC & 27.920*** & 4.175*** & 1.055*** & 0.080 \\ 
   & (5.538) & (0.452) & (0.236) & (0.053) \\ 
   & & & & \\ 
- Tanzania & 12.440$^{**}$ & $-$0.721$^{*}$ & 0.605$^{***}$ & 0.064 \\ 
+ Tanzania & 12.440** & -0.721* & 0.605*** & 0.064 \\ 
   & (4.788) & (0.391) & (0.204) & (0.046) \\ 
   & & & & \\ 
- Mozambique & 27.930$^{***}$ & 0.653 & 0.792$^{***}$ & 0.028 \\ 
+ Mozambique & 27.930*** & 0.653 & 0.792*** & 0.028 \\ 
   & (5.221) & (0.427) & (0.223) & (0.050) \\ 
   & & & & \\ 
- Constant & 14.330$^{***}$ & 2.778$^{***}$ & 1.617$^{***}$ & 0.631$^{***}$ \\ 
+ Constant & 14.330*** & 2.778*** & 1.617*** & 0.631*** \\ 
   & (3.692) & (0.302) & (0.158) & (0.035) \\ 
   & & & & \\ 
 \midrule
 Observations & 64 & 64 & 64 & 64 \\ 
 Adjusted R$^{2}$ & 0.363 & 0.691 & 0.237 & 0.003 \\ 
 Residual Std. Error (df = 60) & 14.300 & 1.168 & 0.611 & 0.137 \\ 
-F Statistic (df = 3; 60) & 12.980$^{***}$ & 48.040$^{***}$ & 7.537$^{***}$ & 1.000 \\ 
+F Statistic (df = 3; 60) & 12.980*** & 48.040*** & 7.537*** & 1.000 \\ 
 \bottomrule
 \end{tabular} 
 \end{table} 
