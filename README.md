@@ -80,14 +80,14 @@ Various packages are used to create this template:
 `subcaption` for compound figures:
 
 ```tex
-\begin{figure}[H]
-	\begin{subfigure}[h]{0.45\linewidth}
+\begin{figure}
+	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{img_a}
 		\caption{}
 		\label{img_a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[h]{0.45\linewidth}
+	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{img_b}
 		\caption{}
 		\label{img_b}

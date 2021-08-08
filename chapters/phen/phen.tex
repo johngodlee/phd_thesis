@@ -44,7 +44,7 @@ In this study we investigated how tree species diversity, composition, and demog
 
 We used data on tree species diversity and composition across \nSites{} sites from the Zambian Integrated Land Use Assessment Phase II (ILUA-II), conducted in \censusDate{} \citep{Mukosha2009, Pelletier2018}. Each site consisted of four 20x50 m (0.1 ha) plots positioned in a square around a central point, with a distance of 500 m between each plot (\autoref{phen:schematic}). The original census contained \nTotalSites{} sites, which was filtered in order to define study bounds and to ensure data quality. Only sites with $\geq$\treesHa{} stems ha\textsuperscript{-1} $\geq$\stemSize{} cm DBH (Diameter at Breast Height) were included in the analysis, to ensure all sites represented woodlands rather than `grassy savanna', which is considered a separate biome with different species composition and ecosystem processes governing phenology \citep{Parr2014}. Sites dominated by non-native tree species ($\geq$50\% of individuals), e.g. \textit{Pinus} spp. and \textit{Eucalyptus} spp. were excluded, as these species may exhibit atypical patterns of foliage production \citep{Broadhead2003}. Of the \nTrees{} trees recorded, \perSp{}\% were identified to species, \perGen{}\% were identified to genus only, \perFam{}\% were identified to family only, and \perIndet{}\% could not be identified at all. There were no significant correlations between the number of trees identified per site and any of the phenological metrics, diversity or structural variables used in analyses.
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/plot_loc_clim}
 	\caption[Map of study sites in Zambia]{Distribution of study sites, within Zambia (left), and in climate space (right). Sites are shown as triangles, each consisting of four plots, coloured according to vegetation type cluster. Zambia is shaded according to growing season length, estimated by the MODIS VIPPHEN-EVI2 product, at 0.05\textdegree{} spatial resolution \citep{VIPPHEN}. The growing season length layer is masked by the MODIS MCD12Q1 land cover map from 2015 \citep{MCD12Q1}, using the International Geosphere-Biosphere Programme (IGBP) classification to remove all pixels occurring in wetlands, croplands, water bodies, and urban areas. Climate space is represented by Mean Annual Temperature (MAT) and Mean Annual Precipitation (MAP), extracted from the WorldClim dataset at 30 arc second resolution, between 1970 and 2000 \citep{Fick2017}. The shaded area in the right panel shows the climate space of Zambia, showing the density of pixels for given values of MAT and MAP. The ellipses in the right panel show the 95\% confidence interval for the climate space of each site.} 
 	\label{phen:plot_loc_clim}
@@ -54,7 +54,7 @@ We used data on tree species diversity and composition across \nSites{} sites fr
 \input{inc/clust_summ.tex}
 \end{landscape}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=0.5\textwidth]{img/schematic}
 	\caption[Schematic diagram of plot layout within a site]{Schematic diagram of plot layout within a site. Each 20x50 m (0.1 ha) plot is shaded grey. Note that the plot dimensions are not to scale.}
 	\label{phen:schematic}
@@ -78,7 +78,7 @@ Precipitation data were gathered using the ``GPM IMERG Final Precipitation L3 1 
 
 We calculated the lag between the onset of the growing season and the onset of the wet season as the difference between these two dates. We performed a similar calculation to estimate the lag between the end of the growing season and the end of the wet season. These two metrics are referred to as ``green-up lag'' and ``senescence lag'' hereafter. To aid interpretation, we reversed the sign of the green-up lag measurements, so that larger values indicate earlier pre-rain green-up.
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=0.8\textwidth]{img/ts_example}
 	\caption[Annotated EVI time series]{Example EVI time series, demonstrating the metrics derived from it. Thin black lines show the raw EVI time series, with one line for each annual growing season. The thick cyan line shows the GAM fit. The blue vertical lines show the minima which bound the growing season. The green vertical lines show the end of the green-up period and start of the senescence period, respectively. The red vertical line shows the maximum EVI value reached within the growing season. The shaded cyan area of the GAM fit shows the growing season, as defined by the first derivative of the GAM curve. The two orange dashed lines are linear regressions predicting the green-up rate and senescence rate at the start and end of the growing season, respectively. Note that while the raw EVI time series fluctuate greatly around the middle of the growing season, mostly due to cloud cover, the GAM fit effectively smooths this variation to estimate the average EVI over the 10 years of data.}
 	\label{phen:ts_example}
@@ -109,7 +109,7 @@ The slope of the relationship between species diversity and phenological metrics
 Clusters, 1, 3 and 4 were largely similar in their density distribution of the six phenological metrics, while Cluster 2 had more plots with lower cumulative EVI and a shorter growing season (\autoref{phen:phen_dens_clust}). A MANOVA including all phenological metrics showed a significant difference among vegetation clusters (\phenManova{}). Post-hoc Tukey's tests showed significant differences between Cluster 2 and the other three clusters for all phenological metrics (\autoref{phen:tukey_terms}). Cluster 2 had a significantly shorter growing season than the other clusters, caused by both later green-up and earlier senescence. Cluster 2 also had a higher maximum EVI than the other clusters (\autoref{phen:gam_compare_clust}). The vast majority of plots, regardless of vegetation type, exhibited some degree of pre-rain green-up, and all plots exhibited some degree of senescence lag (\autoref{phen:phen_dens_clust}).
 
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/gam_compare_clust}
 	\caption[Mean EVI GAMs per vegetation type]{Mean GAMs of EVI over the growing season for each vegetation type cluster. Shaded ribbons are 95\% confidence intervals.}
 	\label{phen:gam_compare_clust}
@@ -117,19 +117,19 @@ Clusters, 1, 3 and 4 were largely similar in their density distribution of the s
 
 \input{inc/mod_stat.tex} 
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/mod_slopes}
 	\caption[Model slope coefficients for each phenological metric]{Standardised slope coefficients for each best model of a phenological metric. Slope estimates are $\pm$1 standard error. Slope estimates where the interval does not overlap zero are considered to be significant effects and are marked by asterisks.}
 	\label{phen:mod_slopes}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/mod_marg}
 	\caption[Marginal effects of species diversity on each phenological metric per vegetation type]{Marginal effects of tree species diversity, evenness, and tree size on each of the phenological metrics, using the maximal mixed effects model, for each vegetation cluster. Dotted lines represent 95\% confidence intervals.}
 	\label{phen:mod_marg}
 \end{figure}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/phen_dens_clust}
 	\caption[Density distribution of phenological metrics per vegetation type]{Density distribution of the six phenological metrics used in the study, grouped by vegetation cluster.}
 	\label{phen:phen_dens_clust}
@@ -174,7 +174,7 @@ Here we explored the role of tree species diversity, composition and woodland st
 \label{phen:sec:supp}
 \begin{supplement} 
 
-\begin{figure}[!h]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/vipphen_compare}
 	\caption[Scatter plots comparing MOD13Q1 and MODIS VIPPHEN phenological measurements]{Scatter plots showing a comparison of phenological metrics from the MODIS VIPPHEN product \citep{VIPPHEN} and those extracted from the MOD13Q1 data \citep{MOD13Q1}, for each of the sites in our study. The cyan line shows a linear model of the data, with a 95\% confidence interval.}
 	\label{phen:vipphen_compare}
@@ -182,7 +182,7 @@ Here we explored the role of tree species diversity, composition and woodland st
 
 \input{inc/vipphen_compare.tex}
 
-\begin{figure}[!h]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/phen_bivar}
 	\caption[Bivariate comparison of phenological metrics]{Scatter plots showing pairwise comparisons of the six phenological metrics used in this study, extracted from the MODIS MOD13Q1 product \citep{MOD13Q1}. Points represent study sites and are coloured by vegetation cluster. Linear regression line of best fit for all sites is shown as a black line, while linear regressions are shown for each vegetation cluster as coloured lines.}
 	\label{phen:phen_bivar}

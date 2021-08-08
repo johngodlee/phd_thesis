@@ -115,7 +115,7 @@ Plots were assigned to vegetation type groups based on tree species composition.
 \input{inc/clust_summ}
 
 \begin{landscape}
-\begin{figure}[p]
+\begin{figure}
 	\includegraphics[width=1.4\textwidth]{img/clust_map}
 	\caption[Plot locations used in analysis, grouped by vegetation type]{The locations of the \nplots{} plots used in this study, with respect to the distribution of mesic savanna vegetation according to \citet{White1983}. Each panel shows plots categorised by their vegetation type as defined by the vegetation types in \autoref{befr:clust_summ}.}
 	\label{befr:clust_map}
@@ -129,7 +129,7 @@ We used Structural Equation Modelling (SEM) to investigate the determinants of A
 
 We specified a conceptual model with factors expected to affect AGB: water availability, soil fertility, disturbance, tree species diversity, tree structural diversity and stem density (\autoref{befr:con_mod}). 
 
-\begin{figure}[tb]
+\begin{figure}
 \includegraphics[width=\textwidth]{img/concept.drawio}
 \caption[Conceptual model path diagram]{Conceptual Directed Acyclic Graph (DAG) showing the theoretical relationships between environmental factors, tree species diversity, tree structural diversity, stem density, and AGB (Above-Ground Woody Biomass). Hypothesised paths of causation are depicted as arrows from predictor to response. Open arrow heads track the direction of each arrow along its path.}
 	\label{befr:con_mod}
@@ -150,7 +150,7 @@ Second, we fitted the full model with environmental covariates, to understand th
 
 Pairwise correlations between all observed variables used in the Structural Equation Models (SEMs) showed that all tree species diversity (extrapolated tree species richness, Shannon equitability index) and structural diversity (coefficients of variation of DBH and height) variables had moderate positive correlations with AGB (\autoref{befr:corr_mat}, Figure S3). Stem density had the strongest correlation with AGB of all variables considered (\ccib{}). Environmental variables had weaker correlations with AGB than diversity variables, with all environmental variables having significant correlations with AGB, except fire frequency. The direction of these correlations was used as a test of our assumptions for the direction of influence of latent variables later used in the SEMs. MAP had positive correlations with all tree species diversity and structural diversity variables. Tree species diversity variables had clear positive correlations with stem density (species richness: \ccsi{}; Shannon equitability: \ccei{}), but structural diversity variables showed weak correlations with stem density (DBH CoV: \ccdvi{}, Height CoV: \cchvi{}).
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=0.6\textwidth]{img/corr_mat}
 	\caption[Correlation matrix of observed variables used in analysis]{Correlation matrix of standardised observed variables used in the SEMs (Structural Equation Models), with Pearson correlation coefficients ($r$) coloured according to sign ($+$ve red, $-$ve blue) and shaded by strength of correlation. Correlation coefficients marked by a circle indicate that the 95\% confidence interval of $r$ overlapped zero. Colours of variable names group them into latent variables used in the SEMs: red = soil fertility, blue = disturbance, turquoise = water availability, green = tree species diversity, purple = tree structural diversity. See Table S1 for a full assessment of correlation fit statistics.}
 	\label{befr:corr_mat}
@@ -163,7 +163,7 @@ In the reduced SEM, which included stem density and the mediating effect of spec
 
 \input{inc/struc_model_fit_clust_stats}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=0.5\textwidth]{img/struc.drawio}
 	\caption[Path diagram for vegetation type model]{Path diagram with regression coefficients for the tree diversity SEM (Structural Equation Model), including plots from all vegetation clusters. Latent variables are shown as circles while observed variables are shown as rectangles. Standardised path coefficients are shown as solid arrows pointing from predictor to response with the effect size of the path coefficient expressed in terms of standard deviations on the latent variable response scale. The observed variables that inform the latent variables are connected by dotted arrows, and observed variables with loading set to one are connected by dashed arrows. Measurement errors of exogenous variables are omitted for clarity.}
 	\label{befr:struc_mod}
@@ -174,7 +174,7 @@ In the reduced SEM, which included stem density and the mediating effect of spec
 
 When the tree species and structural diversity model (\autoref{befr:struc_mod}) was refitted separately using data from each of the four vegetation types, we found that the effect sizes of each latent variable remained largely similar, though model fit varied. The direct effect of tree species diversity on AGB was positive and marginally significant in ex-Acacia (\strucbetacsb{}) but negligible in Mopane (\strucbetadsb{}), Baikiaea (\strucbetaasb{}) and Core miombo (\strucbetabsb{}) (\autoref{befr:struc_model_slopes_all}). Relationships among structural diversity and AGB remained generally similar, with the same sign and overlap between the 95\% confidence intervals of path coefficients. The R\textsuperscript{2} of AGB was highest in ex-Acacia shrubland (R\textsuperscript{2} = \struccrsq{}) and lowest in Baikiaea (R\textsuperscript{2} = \strucarsq{}). The total effect of species diversity on AGB remained strongly positive and there was a positive direct effect of species diversity on structural diversity, across all vegetation types. All models had adequate goodness-of-fit (\autoref{befr:struc_model_fit_clust_stats}), though confidence intervals around the unstandardised path coefficients were wide particularly for Mopane and ex-Acacia. $\chi^{2}$ statistics were high for some vegetation types, but this appears to be highly correlated with sample size for each vegetation type \citep{Hooper2008}.
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/struc_model_slopes_all}
 	\caption[Path coefficients for vegetation type model]{Unstandardised path coefficients for the effects of tree diversity on AGB (Above-Ground Woody Biomass), mediated by the effect of stand structural diversity. Path coefficients are $\pm$1 standard error. Path coefficients where the interval (standard error) does not overlap zero are considered to be significant effects.}
 	\label{befr:struc_model_slopes_all}
@@ -185,7 +185,7 @@ When the tree species and structural diversity model (\autoref{befr:struc_mod}) 
 
 In the sub-sampling of the plot dataset by stem density, we found an increasing positive effect of tree species diversity on AGB as stem density increased (\autoref{befr:sem_struc_stems_ha}e). There appears to be a minimum stem density threshold at c. 180 stems >10 cm DBH ha\textsuperscript{-1} below which there appears to be a reasonably constant baseline effect of tree diversity on biomass (\autoref{befr:sem_struc_stems_ha}b). The effect of structural diversity on AGB appears to remain constant with increasing stem density (\autoref{befr:sem_struc_stems_ha}d). The indirect effect of tree species diversity on AGB via structural diversity increases as stem density increases (\autoref{befr:sem_struc_stems_ha}c). 
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=0.8\textwidth]{img/sem_struc_stems_ha}
 	\caption[Effect of stems density on path coefficients]{Line plots showing the variation in SEM (Structural Equation Model) path coefficients among latent variables, across datasets with different mean stem density. Smoothed lines are loess curves with $\pm1$ standard error shaded bars. AGB = Above-Ground woody Biomass. Arrows in plot titles indicate causal paths in SEM models. Where multiple arrows are present, as in c), this indicates an indirect pathway via an intermediate variable. a) shows the direct effect of species diversity on structural diversity. b) and d) show the direct effects of species diversity and structural diversity on AGB, respectively. c) shows the indirect effect of species diversity on AGB via structural diversity. e) shows the total effect of species diversity on AGB, incorporating both the direct effect and the indirect effect via structural diversity.}
 	\label{befr:sem_struc_stems_ha}
@@ -198,7 +198,7 @@ A model incorporating the latent variables of water availability, soil fertility
 
 Similar to the model that only considered tree species and structural diversity (\autoref{befr:struc_mod}), the direct effect of species diversity on structural diversity was positive, while structural diversity itself had a positive effect on AGB, leading to a strong positive indirect effect of species diversity on AGB via structural diversity (\fmbetadhb{}) when environmental covariates were accounted for. Again, the direct effect of species diversity on AGB was negligible (\fmbetadb{}). The total effect of species diversity on AGB was positive (\fmbetatotaldb{}). Compared to the simple model with no environmental covariates, the total explanatory power of tree species diversity and structural diversity in this model decreased, but the predictive power of the model as a whole increased.
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/full.drawio}
 	\caption[Path diagram of full Structural Equation Model]{Path diagram with regression coefficients for the SEM (Structural Equation Model) incorporating environmental covariates and tree species and structural diversity across all five vegetation types. Latent variables are shown as circles while observed variables are shown as rectangles. Standardised path coefficients are shown as solid arrows pointing from predictor to response, with the effect size of the path coefficient expressed in terms of standard deviations on the latent variable response scale. Observed variables that inform the latent variables are connected by dotted arrows, observed variables with loading set to one are connected by dashed arrows. Measurement errors of exogenous variables are omitted for clarity.}
 	\label{befr:full_mod}
@@ -264,13 +264,13 @@ In this study we found that even in highly disturbed southern African woodlands,
 
 \begin{supplement}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/hist_raw}
 	\caption[Raw histograms of observed variables]{Histograms of raw untransformed observed variables used in final analyses.}
 	\label{befr:hist_raw}
 \end{figure}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/hist_trans}
 	\caption[Histograms of transformed observed variables]{Histograms of observed variables transformed to achieve a normal frequency distribution.}
 	\label{befr:hist_trans}
@@ -278,13 +278,13 @@ In this study we found that even in highly disturbed southern African woodlands,
 
 \input{inc/corr_ci_tab.tex}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=0.9\textwidth]{img/bivar_lm}
 	\caption[Bivariate scatter plots of observed variables]{Bivariate scatter plots for each observed variable used in the SEMs (Structural Equation Models), based on hypothesised paths of causality. Points are coloured according to vegetation type: green = Baikiaea, purple = Core miombo, blue = ex-Acacia, red = Mopane. The black line combines all vegetation types in a single linear regression, while loess trend lines are fitted for each vegetation type, separately. An orange loess trend line is fitted for all the data. All data is standardised to a mean of zero and a standard deviation of one. Variables are transformed where it was appropriate for analysis.}
 	\label{befr:bivar_lm}
 \end{figure}
 
-\begin{figure}[tb]
+\begin{figure}
 	\includegraphics[width=\textwidth]{img/full_model_slopes}
 	\caption[Path coefficients for full Structural Equation Model]{Unstandardised path coefficients for the full model including tree species diversity, environmental covariates and stem density. Path coefficients are $\pm1$ standard error. Path coefficients where the interval (standard error) does not overlap zero are considered to be significant effects.}
 	\label{befr:full_model_slopes}
