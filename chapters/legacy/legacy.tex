@@ -29,7 +29,7 @@ Data from the first census of the plots are held in the SEOSAW database \citep{S
 A second woody stem biomass survey is planned for all plots in 2022/2023, with the aim of improving the quality of data collected and assessing mortality and productivity over time. This re-census will likely happen as part of either the SEOSAW or SECO projects, both operating out of the University of Edinburgh. Data from the second census will be provided to SEOSAW and eventually uploaded along with the first census to ForestPlots.net \citep{LopezGonzalez2011}, increasing visibility of the data further.
 
 \begin{figure}
-	\includegraphics[width=0.6\textwidth]{img/concrete}
+	\includegraphics[width=0.6\linewidth]{img/concrete}
 	\caption[Concrete corner posts in Bicuar National Park]{An example of the concrete posts installed to a depth of 1 m at the plot corners of all 1 ha plots in
 	Bicuar National Park, to ensure that plot boundaries are not lost and do not drift over
 repeated censuses.}
@@ -46,13 +46,13 @@ Data from these plots have already been utilised in four peer-reviewed articles 
 \end{itemize}
 
 \begin{figure}
-	\includegraphics[width=0.8\textwidth]{img/seosaw_plots}
+	\includegraphics[width=0.8\linewidth]{img/seosaw_plots}
 	\caption[Spatial distribution of plots in the SEOSAW network]{The spatial distribution of plots in the SEOSAW network. Blue circles are permanent plots, where individual stems are tagged and can be matched among censuses. The permanent plots in Bicuar National Park are shown as red points. The hexagon grid shows the density of one-off plots.  The pink shading shows the working region of the SEOSAW network, defined primarily from woodland defined by \citet{White1983} and further adapted to bound the north-eastern and southern boundaries.}
 	\label{legacy:seosaw_plots}
 \end{figure}
 
 \begin{figure}
-	\includegraphics[width=0.8\textwidth]{img/seosaw_clim}
+	\includegraphics[width=0.8\linewidth]{img/seosaw_clim}
 	\caption[Climatic distribution of plots in the SEOSAW network]{The distribution of SEOSAW plots in climate space, using Mean Annual Temperature (MAT) and Mean Annual Precipitation (MAP) from the WorldClim database \citep{Fick2017}. Blue circles are permanent plots, where individual stems can be matched among censuses. The permanent plots in Bicuar National Park are shown as red points. Black crosses show one-off plots. The background is shaded according to the density of pixels in the SEOSAW working region, described in \autoref{legacy:seosaw_plots}.}
 	\label{legacy:seosaw_clim}
 \end{figure}
@@ -65,7 +65,7 @@ There has been a recent push to establish certain long-term ecological monitorin
 Some of the common requirements for supersites outlined by various projects have already been fulfilled for the plots in Bicuar National Park. Since 2015, SASSCAL (Southern African Science Service Centre for Climate Change and Adaptive Land Management) has maintained a weather station at Bicuar National Park, providing freely available hourly data on air temperature, solar irradiance, wind speed and direction, soil moisture, precipitation and air pressure \citep{SASSCAL_weather}. The weather station is located within 20 km of all the permanent plots. A critical requirement for a supersite in many projects is that it has a combination of either terrestrial and/or airborne LiDAR measurements. LiDAR provides invaluable information on forest structure that is precisely geo-referenced, helping to bridge the scale gap between ground measurements and satellite measurements. The 15 plots in Bicuar National Park already have a comprehensive terrestrial LiDAR dataset, with precise geo-referencing, collected in 2019. The possibility of repeat LiDAR measurements in combination with an airborne LiDAR campaign would make Bicuar National Park an extremely valuable resource. Additionally, the GEDI L2B satellite LiDAR product has good coverage over Bicuar National Park, with the potential to compare these measurements with the terrestrial LiDAR in the plots (\autoref{legacy:bicuar_tracks}). To our knowledge there are no other plot-based terrestrial LiDAR datasets of dry tropical woodlands in southern Africa. Our hope is that Bicuar National Park can be registered as a supersite with one or more research organisation and become a destination for researchers, strengthening the representation of Angolan science, and advertising Bicuar National Park and the Herbarium of Lubango as a destination for researchers, building capacity, research potential and conservation awareness in the region.
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{img/bicuar_tracks}
+	\includegraphics[width=\linewidth]{img/bicuar_tracks}
 	\caption[GEDI satellite LiDAR tracks over Bicuar National Park]{50 m wide flight-paths of the GEDI L2B satellite LiDAR product (red lines), with the extent of Bicuar National Park (grey polygon), and the locations of the 15 1 ha permanent plots (blue points). Note that in reality each 25 m track consists of a series of 25 m radius circles which contain LiDAR data.}
 	\label{legacy:bicuar_tracks}
 \end{figure}
@@ -89,7 +89,7 @@ Plot-based estimation of woody biomass across the globe currently relies on meas
 Rapid progress has been made in methods to model woody stem diameter from terrestrial LiDAR point clouds \citep{Bogdanovich2021, Hopkinson2004, Srinivasan2015, Ravaglia2019, Wang2016}. These methods estimate a cylinder of the stem from a slice of points, with recent advancements allowing interpolation of the cylinder even when the coverage of laser returns on the stem surface is incomplete. Others have extended the method to generate estimates of stem taper \citep{Henning2006, Thies2004}, but to our knowledge this has not been done for any tree species growing the dry tropics. The terrestrial LiDAR data collected in Angola and Tanzania provide the opportunity to conduct this first study of stem taper from LiDAR measurements in the dry tropics. The species, locations, and stem diameters of all stems >5 cm diameter is known within these plots, meaning that these data can be matched with stems observable in the LiDAR point cloud. As a proof of concept, I have developed a prototype stem segmentation using \texttt{treeseg} \citep{Burt2018}, and a cylinder interpolation method based on \citet{Umbach2003}, which estimates stem diameter at multiple heights along the tree stem (\autoref{legacy:cylinder}).
 
 \begin{figure}
-	\includegraphics[width=0.6\textwidth]{img/cylinder}
+	\includegraphics[width=0.6\linewidth]{img/cylinder}
 	\caption[Stem cross section cylinder interpolation to estimate stem diameter from terrestrial LiDAR]{Example output of the prototype stem cylinder interpolation method used to estimate stem diameter from an incomplete point cloud. Voxelised points at 2 cm\textsuperscript{3} are shown as black points. Interpolation methods are shown as coloured polygons. The interpolated stem cylinder method based on \citet{Umbach2003} is shown in red. A convex hull of all points is shown in blue. A kernel smoothing method using Gaussian kernel regression is shown in green.}
 	\label{legacy:cylinder}
 \end{figure}
@@ -102,7 +102,7 @@ Rapid progress has been made in methods to model woody stem diameter from terres
 Large diameter trees hold a disproportionately large amount of woody biomass in most wooded ecosystems \citep{Bastin2015, Lutz2018}. To accurately describe the woody biomass stocks of a particular system, more effort should therefore be allocated to accurately estimating the biomass of the largest trees. Woody biomass is most commonly estimated through allometric equations which rely on measures of stem diameter, tree height and woody density. At the root of these allometric equations are a limited number of destructive biomass harvests, which define the relationship between tree physiognomic measurements and the biomass of the harvested tree \citep{Chave2005}. Biomass harvesting is time consuming, expensive, and understandably not a popular activity among ecologists due to its destructive nature \citep{Roxburgh2015}. Furthermore, allometric equations are often least well defined for the largest trees, as large trees are scarcer than small trees \citep{Lutz2018, Lindenmayer2012}, and even less likely to be cut down during destructive harvests due to the cultural and aesthetic value they hold as living organisms \citep{Blicharska2014}. Specifically the parameterisation of the exponent term of traditional diameter-biomass allometry power-models is often poor for large trees, and there is a heteroscedastic relationship between diameter and biomass at higher stem diameters (\autoref{legacy:allometry}) \citep{Chave2004, Chave2014}. Recently, the suitability of power-models for diameter-biomass allometries has even been drawn into question, though an alternative that works globally has not yet been found \citep{Picard2015}. Weighting procedures so that large rare trees with higher intrinsic variability in biomass do not overly influence model coefficients have been used successfully previously \citep{Chave2014, McNicol2015b}, but this does not solve the root problem that the biomass of newly encountered large trees will likely be poorly estimated. 
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{img/allometry}
+	\includegraphics[width=\linewidth]{img/allometry}
 	\caption[Scatter plot of stem diameter and biomass from GlobAllomeTree database]{The relationship between tree stem diameter and aboveground biomass calculated from destructive harvest from all 872 records held in the GlobAllomeTree database \citep{Henry2013} and all 4004 records reported in \citet{Chave2014}. The heteroscedasticity of the relationship between stem diameter and aboveground biomass can be seen, with increased variance in biomass at higher stem diameters.}
 	\label{legacy:allometry}
 \end{figure}
@@ -110,7 +110,7 @@ Large diameter trees hold a disproportionately large amount of woody biomass in 
 As the age of a tree increases, it generates an idiosyncratic physiognomy due to the amassed disturbances and variations in environment it has encountered \citep{Lindenmayer2016}. Large trees often have hollow trunks (fluting) or areas of punky wood \citep{Chambers2001, Ruxton2014}, which may lead to a large over-estimation of biomass if not accounted for (\autoref{legacy:flute}). The correlation between main stem diameter and the woody biomass held in other tree components such upper canopy branches tends to become weaker in larger trees, meaning that simple stem diameter measurements cannot accurately represent whole tree biomass \citep{Goodman2014, Saglam2020}. In disturbance-prone tropical savannas, it may be expected that the issue of idiosyncratic physiognomy is even greater, as trees repeatedly re-grow following seasonal fire and damage by large herbivores, further reducing the accuracy of biomass estimations (\autoref{legacy:big_tree}). \citet{Luck2020} raised concern that traditional stem diameter allometries were particularly unreliable in disturbance-prone savannas, in a study which compared terrestrial LiDAR biomass estimates with traditional allometries. For the reasons outlined above, it is therefore of great importance to develop an optimal method for estimating biomass of the largest trees. But how do we reconcile the disproportionate contribution of large trees to plot-based estimates of biomass with the scarcity of destructive large tree measurements?
 
 \begin{figure}
-	\includegraphics[width=0.8\textwidth]{img/big_tree}
+	\includegraphics[width=0.8\linewidth]{img/big_tree}
 	\caption[Photographs of large old trees with idiosyncratic trunk physiognomy]{Two large old trees in Kilwa District, southeast Tanzania, with particularly idiosyncratic trunks. Using conventional stem diameter allometries will likely produce an inaccurate estimate of above-ground biomass. Photos by Ellie Wood.}
 	\label{legacy:big_tree}
 \end{figure}
@@ -118,7 +118,7 @@ As the age of a tree increases, it generates an idiosyncratic physiognomy due to
 
 
 \begin{figure}
-	\includegraphics[width=0.6\textwidth]{img/flute}
+	\includegraphics[width=0.6\linewidth]{img/flute}
 	\caption[Photograph of severely fluted tree stem]{A severely fluted \textit{Brachystegia tamarindoides} stem found in Bicuar National Park, Angola. Due to the decomposition of wood in the stem interior, simple stem diameter based biomass allometries will over-estimate the biomass of this stem.}
 	\label{legacy:flute}
 \end{figure}
@@ -128,7 +128,7 @@ Terrestrial LiDAR provides an opportunity to accurately estimate the woody volum
 While terrestrial LiDAR may address inaccurate biomass estimates caused by idiosyncratic physiognomy present on the exterior surface of large trees, and has been used successfully for this purpose in other studies \citep{Takoudjou2017}, it cannot address the internal variation caused by fluting and hollowing that is pervasive in large trees. It is also affected by the thick bark present in many fire-adapted savanna trees, which can lead to an over-estimation of woody biomass \citep{Kozak1993, Hoffmann2012, Solbrig1996}. Sonic tomography has been developed as a method to measure the decay of wood within tree trunks \citep{Gilbert2016}, and is currently used routinely to detect structural weaknesses in large trees in urban and parkland areas \citep{Karlinasari2018}. The PiCUS sonic tomograph (Argus Electronics GmbH, Rostock, Germany) is suitable for detecting internal abnormalities in large woody stems, and has been used previously to estimate biomass in forest trees \citep{Marra2018}.
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{img/tomograph}
+	\includegraphics[width=\linewidth]{img/tomograph}
 	\caption[Example tomograph visualisation and trunk cross-section photograph]{An example of a sonic tomograph image (left) and across section of
 		the same tree (right), annotated to show internal features of the stem:
 		(1) cavity or dead dry wood, (2) sound wood, (4) active decay with dense
@@ -150,7 +150,7 @@ Although the data was not included in the thesis due to lack of time for analysi
 Using simple linear mixed effects models to explore the relative importance of different tree canopy architectural and structural properties, these data could be used to improve our understanding the drivers of woody encroachment and alternative stable states, which could be applied to earth system models at regional spatial scales to predict how resilient different vegetation types are to environmental change, with consequences for biomass and carbon cycling predictions.
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{img/subplot}
+	\includegraphics[width=\linewidth]{img/subplot}
 	\caption[Grass biomass harvesting subplot layout]{The layout of 10 m diameter subplots within each 1 ha square plot. Distances are marked by dotted lines, in metres. Each subplot is situated inside a 15 m buffer from the plot edge, with 35 m between subplot centres. Subplots are arranged in a 3x3 grid. Disc Pasture Measurements (DPM) and biomass samples are located in cardinal directions 2 m from the centre of the subplot. All distances are in metres. Biomass harvests were conducted at one randomly selected DPM sample point per subplot, resulting in nine biomass harvests and 36 DPM samples per 1 ha plot.}
 	\label{legacy:subplot}
 \end{figure}
