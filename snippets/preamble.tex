@@ -56,6 +56,12 @@
 \usepackage{xcolor}
 \usepackage{fmtcount}
 
+% Code
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Code}
+\renewcommand{\lstlistlistingname}{List of code snippets}
+\input{snippets/code_format}
+
 % Todo notes 
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{#1}}}
 
@@ -79,6 +85,8 @@
 	\renewcommand{\thetable}{\thechapter{}.S\arabic{table}}%
 	\setcounter{figure}{0}
 	\renewcommand{\thefigure}{\thechapter{}.S\arabic{figure}}%
+	\setcounter{lstlisting}{0}
+	\renewcommand{\thelstlisting}{\thechapter{}.S\arabic{lstlisting}}%
 }{}
 
 % Common definitions
