@@ -13,7 +13,7 @@
 
 This chapter provides expanded field and analytical methods for the study of tree canopy structure in southern African woodlands, presented in brief in \autoref{ch:tls}. The study aimed to understand the effects of tree species diversity and stand structure on tree canopy structural complexity, using terrestrial LiDAR. Firstly, I provide technical details on the field setup for the terrestrial LiDAR and the hemispherical photography used to validate terrestrial LiDAR canopy closure estimates. Secondly, I describe the processing chain used to extract canopy complexity metrics from the terrestrial LiDAR point clouds. Thirdly, I describe in further detail the behaviour and suitability of the different canopy complexity and stand structural metrics used in the study.
 
-\section{Terrestrial LIDAR field setup}
+\section{Terrestrial LiDAR field setup}
 
 Within each 1 ha (100$\times$100 m) square plot, nine 10 m diameter circular subplots were laid out in a grid, with 35 m between subplot centre points (\autoref{workflow:subplot_plot}). These subplots constitute the basic sampling unit of the study. Within each subplot, a Leica HDS6100 phase-shift Terrestrial Laser Scanner (TLS) was used to capture woodland canopy structure. The number and position of scan locations within a subplot was determined by the arrangement and density of canopy material in the subplot, with the aim to minimise shadows within the canopy, and to maximise canopy penetration \citep{Beland2021b}. Between one and five scans were recorded per subplot, across all plots. Further information on the field setup of the TLS is presented in \autoref{workflow:scan_settings}.
 
@@ -260,7 +260,7 @@ The canopy height of each 1 ha plot was estimated using unified point clouds fro
 		\caption{}
 		\label{workflow:P1_pit}
 	\end{subfigure}
-	\caption[Canopy surface model before and after pit-filling]{Top-down view of a 1 ha plot in Bicuar National Park. (a) The point cloud after voxelisation, noise reduction, and taking the 99th percentile of stem height in each 5 cm vertical bin. (b) The same point cloud after pit filling to generate a smooth canopy height profile. Points are coloured according to point height from the ground.}
+	\caption[Canopy surface model before and after pit-filling]{Top-down view of a 1 ha plot in Bicuar National Park. (a) The point cloud after voxelisation, noise reduction, and taking the 99th percentile of tree height in each 5 cm vertical bin. (b) The same point cloud after pit filling to generate a smooth canopy height profile. Points are coloured according to point height from the ground.}
 	\label{workflow:P1_both}
 \end{figure}
 
@@ -313,7 +313,7 @@ Where $k$ is the number of nearest neighbours considered for each reference tree
 
 \subsection{Uniform angle index}
 
-The uniform angle index (winkelmass, $W$) was calculated to estimate the degree of spatial regularity in stem spatial distribution. Here, $W$ was calculated at the plot level as the mean of $W_{i}$ \citep{Gadow2002}: 
+The uniform angle index (winkelmass, $W$) was calculated to estimate the degree of spatial regularity in tree spatial distribution. Here, $W$ was calculated at the plot level as the mean of $W_{i}$ \citep{Gadow2002}: 
 
 \begin{align}
 \begin{split}
@@ -351,7 +351,7 @@ Where $k$ is the number of neighbours considered, $\alpha_{j}$ is the angle betw
 
 \subsection{Voronoi tessellation}
 
-In addition to spatial regularity, the spatial uniformity of stems is another important aspect of tree spatial distribution. While the uniform angle index effectively measures similarity to a grid-like distribution of individuals, it does not account for variation in the relative distance of stems from their neighbours over the plot area. Spatial uniformity is defined here by two criteria: equality of spacing among individuals within the plot, and even coverage of individuals across the plot \citep{Ong2012}. Departures from spatial uniformity indicate clustering of individuals. Voronoi tessellation is a method of partitioning an n-dimensional space into regions according to the closest individual (\autoref{workflow:voronoi_example}). Voronoi tessellation was conducted using stem location within each plot. The CV of the area of Voronoi cells was then used as a measure of spatial clustering which is sensitive to both the criteria defining spatial uniformity, and is independent of tree density (\autoref{workflow:voronoi_diag}). As clustering increases, individuals within clusters will exhibit progressively smaller Voronoi cells, while individuals at the edges of clusters will exhibit progressively larger Voronoi cells, thus increasing the cell area CV.
+In addition to spatial regularity, the spatial uniformity of trees is another important aspect of tree spatial distribution. While the uniform angle index effectively measures similarity to a grid-like distribution of individuals, it does not account for variation in the relative distance of trees from their neighbours over the plot area. Spatial uniformity is defined here by two criteria: equality of spacing among individuals within the plot, and even coverage of individuals across the plot \citep{Ong2012}. Departures from spatial uniformity indicate clustering of individuals. Voronoi tessellation is a method of partitioning an n-dimensional space into regions according to the closest individual (\autoref{workflow:voronoi_example}). Voronoi tessellation was conducted using tree location within each plot. The CV of the area of Voronoi cells was then used as a measure of spatial clustering which is sensitive to both the criteria defining spatial uniformity, and is independent of tree density (\autoref{workflow:voronoi_diag}). As clustering increases, individuals within clusters will exhibit progressively smaller Voronoi cells, while individuals at the edges of clusters will exhibit progressively larger Voronoi cells, thus increasing the cell area CV.
 
 \begin{figure}
 \centering
@@ -375,7 +375,7 @@ An adapted version of the iterative Hegyi index ($H_{i}$) was used to estimate t
 	H_{i} = log\sum_{j=1}^{n} (\frac{1}{L_{ij}} D_{j})
 \end{equation}
 
-Where $n$ is the number of stems with canopy material within the subplot, $D_{j}$ is the stem diameter of stem $j$ and $L_{ij}$ is the distance of stem $j$ from the subplot centre $i$. $H_{i}$ uses an iterative method for choosing active canopy occupants at the subplot centre, where the nearest individual to the subplot centre from each of 12 equally sized sectors is classified as the active stem (\autoref{workflow:hegyi}). $H_{i}$ was preferred over stem density to describe stem crowding in subplots because it is sensitive to how close a stem is to the subplot centre, which will affect canopy closure even if the number of stems in the subplot remains the same. 
+Where $n$ is the number of trees with canopy material within the subplot, $D_{j}$ is the diameter of stem $j$ and $L_{ij}$ is the distance of stem $j$ from the subplot centre $i$. $H_{i}$ uses an iterative method for choosing active canopy occupants at the subplot centre, where the nearest individual to the subplot centre from each of 12 equally sized sectors is classified as the active stem (\autoref{workflow:hegyi}). $H_{i}$ was preferred over stem density to describe stem crowding in subplots because it is sensitive to how close a stem is to the subplot centre, which will affect canopy closure even if the number of stems in the subplot remains the same. 
 
 \begin{figure}
 	\includegraphics[width=0.6\linewidth]{img/hegyi}
