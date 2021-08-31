@@ -152,8 +152,8 @@ Second, we fitted the full model with environmental covariates, to understand th
 Pairwise correlations between all observed variables used in the Structural Equation Models (SEMs) showed that all tree species diversity (extrapolated tree species richness, Shannon equitability index) and structural diversity (coefficients of variation of DBH and height) variables had moderate positive correlations with AGB (\autoref{befr:corr_mat}, Figure S3). Stem density had the strongest correlation with AGB of all variables considered (\ccib{}). Environmental variables had weaker correlations with AGB than diversity variables, with all environmental variables having significant correlations with AGB, except fire frequency. The direction of these correlations was used as a test of our assumptions for the direction of influence of latent variables later used in the SEMs. MAP had positive correlations with all tree species diversity and structural diversity variables. Tree species diversity variables had clear positive correlations with stem density (species richness: \ccsi{}; Shannon equitability: \ccei{}), but structural diversity variables showed weak correlations with stem density (DBH CV: \ccdvi{}, Height CV: \cchvi{}).
 
 \begin{figure}
-	\includegraphics[width=0.6\linewidth]{img/corr_mat}
-	\caption[Correlation matrix of observed variables used in analysis]{Correlation matrix of standardised observed variables used in the SEMs (Structural Equation Models), with Pearson correlation coefficients ($r$) coloured according to sign ($+$ve red, $-$ve blue) and shaded by strength of correlation. Correlation coefficients marked by a circle indicate that the 95\% confidence interval of $r$ overlapped zero. Colours of variable names group them into latent variables used in the SEMs: red = soil fertility, blue = disturbance, turquoise = water availability, green = tree species diversity, purple = tree structural diversity. See Table S1 for a full assessment of correlation fit statistics.}
+	\includegraphics[width=\linewidth]{img/corr_mat}
+	\caption[Correlation matrix of observed variables used in analysis]{Correlation matrix of standardised observed variables used in the SEMs (Structural Equation Models), with Pearson correlation coefficients ($r$) coloured according to sign ($+$ve red, $-$ve blue) and shaded by strength of correlation. Correlation coefficients marked by a circle indicate that the 95\% confidence interval of $r$ overlapped zero. Colours of variable names group them into latent variables used in the SEMs: red = soil fertility, blue = disturbance, turquoise = water availability, green = tree species diversity, purple = tree structural diversity. See \autoref{befr:corr_ci} for a full assessment of correlation fit statistics.}
 	\label{befr:corr_mat}
 \end{figure}
 
@@ -285,7 +285,7 @@ In this study we found that even in highly disturbed southern African woodlands,
 	\label{befr:bivar_lm}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\includegraphics[width=\linewidth]{img/full_model_slopes}
 	\caption[Path coefficients for full Structural Equation Model]{Unstandardised path coefficients for the full model including tree species diversity, environmental covariates and stem density. Path coefficients are $\pm1$ standard error. Path coefficients where the interval (standard error) does not overlap zero are considered to be significant effects.}
 	\label{befr:full_model_slopes}
