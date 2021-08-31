@@ -85,7 +85,7 @@ Plots were chosen from the SEOSAW database based on the quality and completeness
  
 We considered only trees and shrubs in our calculations of Above-Ground woody Biomass (AGB), including woody species such as palms and cycads, which are functionally tree-like. Woody lianas are scarce in our study plots and were not measured. Only living stems >10 cm DBH (Diameter at Breast Height, 1.3 m) were included in analyses. Many plots in the dataset did not include data on stems <10 cm DBH. For those plots which contained stem measurements <10 cm DBH, small stems only accounted for a median of \percsmallagb{}\% of the plot AGB. 
 
-All stems >10 cm DBH were measured within each plot resulting in a total of \num[group-separator={,}]{\ntrees} stems with measurements. A tree may be comprised of multiple stems and so tree-level richness estimates, rather than stem-level estimates, were used to prevent bias from species which readily coppice. For each tree, we recorded species, tree height to the top of the highest branch material, and the DBH of each stem >10 cm DBH. Height was measured through a variety of means including laser rangefinders, manual clinometers and measuring sticks. When stem DBH could not be reliably measured at 1.3 m due to trunk abnormalities, it was measured at the closest regular portion of the trunk to 1.3 m. The height of this measurement was used to estimate diameter at 1.3 m using a cubic polynomial regression to account for stem taper, with parameters estimated using a test dataset from Ryan C., (unpublished), see \citet{Godlee2020}. 
+All stems >10 cm DBH were measured within each plot resulting in a total of \num[group-separator={,}]{\ntrees} stems with measurements. A tree may be comprised of multiple stems and so tree level richness estimates, rather than stem level estimates, were used to prevent bias from species which readily coppice. For each tree, we recorded species, tree height to the top of the highest branch material, and the DBH of each stem >10 cm DBH. Height was measured through a variety of means including laser rangefinders, manual clinometers and measuring sticks. When stem DBH could not be reliably measured at 1.3 m due to trunk abnormalities, it was measured at the closest regular portion of the trunk to 1.3 m. The height of this measurement was used to estimate diameter at 1.3 m using a cubic polynomial regression to account for stem taper, with parameters estimated using a test dataset from Ryan C., (unpublished), see \citet{Godlee2020}. 
 
 AGB for each plot (t ha\textsuperscript{-1}) was calculated as the sum of the AGB of each stem >5 cm DBH ($AGB_{i}$), divided by the plot area, using \autoref{befr:chave_agb} taken from \citet{Chave2014}:
 
@@ -117,7 +117,7 @@ Plots were assigned to vegetation type groups based on tree species composition.
 
 \begin{landscape}
 \begin{figure}
-	\includegraphics[width=1.4\linewidth]{img/clust_map}
+	\includegraphics[width=\linewidth]{img/clust_map}
 	\caption[Plot locations used in analysis, grouped by vegetation type]{The locations of the \nplots{} plots used in this study, with respect to the distribution of mesic savanna vegetation according to \citet{White1983}. Each panel shows plots categorised by their vegetation type as defined by the vegetation types in \autoref{befr:clust_summ}.}
 	\label{befr:clust_map}
 \end{figure}
@@ -181,7 +181,7 @@ When the tree species and structural diversity model (\autoref{befr:struc_mod}) 
 	\label{befr:struc_model_slopes_all}
 \end{figure}
 
-\subsection{Moderation of Diversity-AGB relationship by stem density}
+\subsection{Moderation of diversity effect by stem density}
 \label{befr:ssec:stems}
 
 In the sub-sampling of the plot dataset by stem density, we found an increasing positive effect of tree species diversity on AGB as stem density increased (\autoref{befr:sem_struc_stems_ha}e). There appears to be a minimum stem density threshold at c. 180 stems >10 cm DBH ha\textsuperscript{-1} below which there appears to be a reasonably constant baseline effect of tree diversity on biomass (\autoref{befr:sem_struc_stems_ha}b). The effect of structural diversity on AGB appears to remain constant with increasing stem density (\autoref{befr:sem_struc_stems_ha}d). The indirect effect of tree species diversity on AGB via structural diversity increases as stem density increases (\autoref{befr:sem_struc_stems_ha}c). 
@@ -215,7 +215,7 @@ We assessed the importance of a) tree species diversity, b) tree structural dive
 
 We found a consistent positive effect of tree species diversity on AGB. Within southern African woodlands we therefore find support for the hypothesis that higher tree species richness and evenness leads to higher above-ground woody biomass. This finding is in agreement with many other studies across different ecosystems and biomes, supporting the idea that there is a generalisable positive association between biodiversity and ecosystem function \citep{Liang2016, Cardinale2009}. Our study provides a novel dissection of the mechanisms underlying this relationship, particularly in the context of southern African woodlands, a disturbance-driven and poorly studied ecological system.
 
-Much of the total variation in AGB was driven by variation in organismal density. It is possible that within southern African woodlands a higher species diversity allows for a higher stem density through niche separation, which reduces competition between species occupying varying niche space, leading to an increase in total AGB per unit area. The opposite causation is also plausible however, with increased stem density causing higher species richness through an increased probability of encountering new species. We attempted to correct for the correlation between species richness and stem density using extrapolated species richness, which extrapolates a rarefaction curve to its predicted asymptote, thus estimating the total landscape-level species richness which is independent of plot size and stem density. We suggest therefore that an increase in tree species diversity through species richness and evenness produces an assemblage of species which can utilise more available light and moisture, resulting in greater plot-level AGB. This is supported by the moderately strong indirect positive effect of tree species diversity on AGB via structural diversity, and the positive effect of water availability on AGB via stem density in the model which included environmental covariates. 
+Much of the total variation in AGB was driven by variation in organismal density. It is possible that within southern African woodlands a higher species diversity allows for a higher stem density through niche separation, which reduces competition between species occupying varying niche space, leading to an increase in total AGB per unit area. The opposite causation is also plausible however, with increased stem density causing higher species richness through an increased probability of encountering new species. We attempted to correct for the correlation between species richness and stem density using extrapolated species richness, which extrapolates a rarefaction curve to its predicted asymptote, thus estimating the total landscape level species richness which is independent of plot size and stem density. We suggest therefore that an increase in tree species diversity through species richness and evenness produces an assemblage of species which can utilise more available light and moisture, resulting in greater plot level AGB. This is supported by the moderately strong indirect positive effect of tree species diversity on AGB via structural diversity, and the positive effect of water availability on AGB via stem density in the model which included environmental covariates. 
 
 We found evidence that tree species diversity led to an increase in AGB indirectly via tree structural diversity, and we therefore find support for our second hypothesis H\textsubscript{2}. A higher tree species diversity allows for a greater structural diversity of trees, i.e. greater variation in DBH and height. This may act as a mechanism for niche complementarity, with a canopy of diversely-sized trees able to take advantage of a greater proportion of the available light. Additionally, the volume of tree above-ground structures is generally correlated with the volume of below-ground structures \citep{Paul2019}. In water and nutrient limited ecosystems especially, variation in rooting depth may constitute a second related axis of niche partitioning driving the observed positive effect of above-ground structural diversity on AGB \citep{Kulmatiski2013}. Although we did not measure them here, we would also expect that tree species diversity allows for a greater range of tree functional forms \citep{Pretzsch2014}, i.e. wider variation in canopy shape and overall growth form; broad flat crowns vs. narrow deep crowns, for example. In forests, where the tree canopy is effectively closed, as the stand matures a more diverse canopy emerges via competition and tree mortality events which open canopy gaps \citep{Muscolo2014}. Indeed, our finding that the strength of the effect of tree diversity on AGB increases with stem density supports this mechanism (\autoref{befr:sem_struc_stems_ha}). At low stem densities, competition between mature trees may not occur, meaning that the niche complementarity effect provided by an increase in tree species richness may not be present, accounting for the small effect of tree species diversity on AGB below c. 180 trees ha\textsuperscript{-1}. In frequently disturbed woodlands such as those studied here, a woodland canopy similar to that of a forest is frequently not reached. Instead, a simple open canopy is maintained that can be made more complex and productive via an increase in species diversity.
 
@@ -265,13 +265,13 @@ In this study we found that even in highly disturbed southern African woodlands,
 
 \begin{supplement}
 
-\begin{figure}
+\begin{figure}[H]
 	\includegraphics[width=\linewidth]{img/hist_raw}
 	\caption[Raw histograms of observed variables]{Histograms of raw untransformed observed variables used in final analyses.}
 	\label{befr:hist_raw}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\includegraphics[width=\linewidth]{img/hist_trans}
 	\caption[Histograms of transformed observed variables]{Histograms of observed variables transformed to achieve a normal frequency distribution.}
 	\label{befr:hist_trans}
@@ -279,9 +279,9 @@ In this study we found that even in highly disturbed southern African woodlands,
 
 \input{inc/corr_ci_tab.tex}
 
-\begin{figure}
+\begin{figure}[H]
 	\includegraphics[width=0.9\linewidth]{img/bivar_lm}
-	\caption[Bivariate scatter plots of observed variables]{Bivariate scatter plots for each observed variable used in the SEMs (Structural Equation Models), based on hypothesised paths of causality. Points are coloured according to vegetation type: green = Baikiaea, purple = Core miombo, blue = ex-Acacia, red = Mopane. The black line combines all vegetation types in a single linear regression, while loess trend lines are fitted for each vegetation type, separately. An orange loess trend line is fitted for all the data. All data is standardised to a mean of zero and a standard deviation of one. Variables are transformed where it was appropriate for analysis.}
+	\caption[Bivariate scatter plots of observed variables]{\setstretch{1}Bivariate scatter plots for each observed variable used in the SEMs (Structural Equation Models), based on hypothesised paths of causality. Points are coloured according to vegetation type: green = Baikiaea, purple = Core miombo, blue = ex-Acacia, red = Mopane. The black line combines all vegetation types in a single linear regression, while loess trend lines are fitted for each vegetation type, separately. An orange loess trend line is fitted for all the data. All data is standardised to a mean of zero and a standard deviation of one. Variables are transformed where it was appropriate for analysis.}
 	\label{befr:bivar_lm}
 \end{figure}
 

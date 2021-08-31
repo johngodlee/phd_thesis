@@ -31,6 +31,10 @@
 \usepackage{makecell}
 \renewcommand\theadfont{}
 
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning}
+
 % Landscape pages
 \usepackage{pdflscape}
 
@@ -61,7 +65,7 @@
 % Code
 \usepackage{listings}
 \renewcommand{\lstlistingname}{Code}
-\renewcommand{\lstlistlistingname}{List of code snippets}
+\renewcommand{\lstlistlistingname}{List of Code Snippets}
 \input{snippets/code_format}
 
 % Todo notes 
@@ -74,8 +78,8 @@
 
 % Rename Table of Contents
 \addto\captionsUKenglish{
-  \renewcommand{\contentsname}
-    {Table of Contents}
+	\renewcommand{\contentsname}
+		{Table of Contents}
 }
 
 % Appendices
@@ -130,7 +134,7 @@
 % Paper author affiliations formatted block
 \usepackage{enumitem}
 \newlist{paperaffil}{enumerate}{1}
-\setlist[paperaffil]{label=\arabic*., leftmargin=*, topsep=6pt, itemsep=-1ex}
+\setlist[paperaffil]{label=\arabic*., before=\footnotesize, font=\footnotesize, leftmargin=*, topsep=2pt, itemsep=-1ex}
 
 % Published paper full citation
 \newcommand{\papercite}[1]{%
@@ -140,3 +144,12 @@
 % Links
 \usepackage[hidelinks, breaklinks]{hyperref}
 \hypersetup{linktoc=all}
+% Rename autorefs to capitals
+\addto\extrasUKenglish{
+	\renewcommand{\chapterautorefname}{Chapter}%
+	\renewcommand{\sectionautorefname}{Section}%
+	\renewcommand{\subsectionautorefname}{Section}%
+	\renewcommand{\subsubsectionautorefname}{Section}%
+}
+
+

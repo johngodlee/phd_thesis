@@ -102,7 +102,7 @@ In addition to the one hectare plots across the miombo ecoregion, we compared th
 \subsection{Climatic data}
 \label{bicuar:ssec:climate}
 
-The WorldClim dataset \citep{Fick2017} was used to gather data on plot-level climatic conditions. We estimated Mean Annual Precipitation (MAP) as the mean of total annual precipitation values between 1970 and 2000, and Mean Annual Temperature (MAT) as the mean of mean annual temperatures between 1970 and 2000. The seasonality of temperature (MAT SD) was calculated as the standard deviation of monthly temperature per year, respectively. We estimated Climatic Water Deficit (CWD) for each plot according to \citep{Chave2014}, as the sum of the difference between monthly rainfall and monthly evapotranspiration when the difference is negative, using data from WorldClim.
+The WorldClim dataset \citep{Fick2017} was used to gather data on plot level climatic conditions. We estimated Mean Annual Precipitation (MAP) as the mean of total annual precipitation values between 1970 and 2000, and Mean Annual Temperature (MAT) as the mean of mean annual temperatures between 1970 and 2000. The seasonality of temperature (MAT SD) was calculated as the standard deviation of monthly temperature per year, respectively. We estimated Climatic Water Deficit (CWD) for each plot according to \citep{Chave2014}, as the sum of the difference between monthly rainfall and monthly evapotranspiration when the difference is negative, using data from WorldClim.
 
 \subsection{Data analysis}
 \label{bicuar:ssec:data_analysis}
@@ -115,7 +115,7 @@ We calculated the basal area of each stem ($g_{i}$) using:
 
 Where $d_{i}$ is the estimated stem diameter of stem $i$ at 1.3 m having accounted for tree taper. We then calculated the total basal area of each plot as the sum of each stem's basal area. For the DRC plots which lacked 5-10 cm stems, we estimated basal area in this stem diameter class from our extrapolation of stem abundance in the 5-10 cm diameter class, assuming a mean stem diameter of 7.5 cm.
 
-All diversity measures were calculated on individual tree-level data, rather than stem-level data, to avoid artificial inflation of abundance for those species which readily coppice. We calculated the alpha diversity of each plot using both the tree species richness of trees with stems $\ge$5 cm diameter, and the Shannon-Wiener index ($H'$) (\autoref{bicuar:shannon}), using the \texttt{vegan} package in R \citep{vegan}:
+All diversity measures were calculated on individual tree level data, rather than stem level data, to avoid artificial inflation of abundance for those species which readily coppice. We calculated the alpha diversity of each plot using both the tree species richness of trees with stems $\ge$5 cm diameter, and the Shannon-Wiener index ($H'$) (\autoref{bicuar:shannon}), using the \texttt{vegan} package in R \citep{vegan}:
 
 \begin{equation}
 	H' = -\sum^{S}_{i=1} p_{i} \ln{p_{i}}
@@ -137,7 +137,7 @@ We estimated abundance evenness for each plot using the Shannon equitability ind
 
 We analysed the difference in alpha diversity measures and woodland structural variables among groups of plots using Analysis of Variance (ANOVA) statistical models, with a null hypothesis that there was no difference among the mean values of groups of plots. Post-hoc Tukey's HSD tests were used to investigate the degree to which pairwise combinations of plot groups differed in each case.
 
-We used Non-metric Multidimensional Scaling (NMDS) to assess the variation in species composition among one hectare plots, and also between disturbed and undisturbed 20$\times$50 m plots within Bicuar National Park, using the \texttt{vegan} R package. The number of dimensions for NMDS was minimised while ensuring the stress value of the NMDS fit was $\le$0.1. NMDS analyses were run with 500 random restarts to ensure a global solution was reached. We used Bray-Curtis dissimilarity as the optimal measure of ecological distance \citep{Legendre2013}. We fit plot-level estimates of MAP, MAT, the seasonality of MAT and CWD to the first two axes of the resulting ordination using the \texttt{envfit} function in the \texttt{vegan} R package to investigate how these environmental factors influenced the grouping of species composition among plots. All analyses were conducted in R version 4.1.0 \citep{R2020}.
+We used Non-metric Multidimensional Scaling (NMDS) to assess the variation in species composition among one hectare plots, and also between disturbed and undisturbed 20$\times$50 m plots within Bicuar National Park, using the \texttt{vegan} R package. The number of dimensions for NMDS was minimised while ensuring the stress value of the NMDS fit was $\le$0.1. NMDS analyses were run with 500 random restarts to ensure a global solution was reached. We used Bray-Curtis dissimilarity as the optimal measure of ecological distance \citep{Legendre2013}. We fit plot level estimates of MAP, MAT, the seasonality of MAT and CWD to the first two axes of the resulting ordination using the \texttt{envfit} function in the \texttt{vegan} R package to investigate how these environmental factors influenced the grouping of species composition among plots. All analyses were conducted in R version 4.1.0 \citep{R2020}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -170,18 +170,18 @@ Alpha diversity in Bicuar National Park was low compared to other sites (\autore
 The NMDS of plot species composition among one hectare plots was run with four dimensions. The stress value was \nmdsstress{}. Plot diversity in Bicuar National Park formed three distinct groups within axes 1 and 2 of the NMDS ordination. Bicuar plots 9, 13, and 15 were characterised by high abundances of \textit{Baikiaea plurijuga}, \textit{Baphia massaiensis} and \textit{Croton gratissimus}, according to species scores from the NMDS. Bicuar plots 4, 11, and 12 were characterised  by \textit{Brachystegia tamarindoides}, and \textit{Ochna pulchra}. The third group consisting of the remaining seven plots surprisingly had a species composition most similar to that of plots in the DRC group according to the NMDS, sharing the core miombo species of \textit{Julbernardia paniculata} and \textit{Pterocarpus angolensis}. This group of plots in Bicuar National Park was further characterised by the abundance of \textit{Pterocarpus lucens}, \textit{Strychnos pungens} and \textit{Bridelia mollis} however, which were not present in the DRC plots. All environmental factors fitted to the NMDS ordination correlated significantly with the grouping of plots (\autoref{bicuar:nmds_envfit_12}). MAT explained the most variation in plot position on the first two NMDS axes (\nmdsmat{}), followed by CWD (\nmdsmapsd{}), the seasonality of MAT (\nmdsmatsd{}) and MAP (\nmdsmap{}). Variation in MAP explained much of the difference among plots in Bicuar National Park versus those in Tanzania and Mozambique. Axes 3 and 4 showed a greater degree of overlap in species composition among plot groups, with plots from Bicuar National Park similar to a select few plots in both Tanzania and Mozambique (\autoref{bicuar:nmds_envfit_34}). Axis 3 distinguished plots in Bicuar NP from those in DRC, while plots from all geographic area overlapped in their distribution across Axis 4. Axes 3 and 4 largely reflected distribution patterns of less abundant species and not the dominant species in the vegetation.
 
 \begin{figure}
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.75\linewidth}
 		\includegraphics[width=\linewidth]{img/all_nmds_envfit}
 		\caption{}
 		\label{bicuar:nmds_envfit_12}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.75\linewidth}
 		\includegraphics[width=\linewidth]{img/all_nmds_envfit_low}
 		\caption{}
 		\label{bicuar:nmds_envfit_34}
 	\end{subfigure}
-	\caption[NMDS ordination of species composition]{Environmental factors fitted to (\subref{bicuar:nmds_envfit_12}) axes 1 and 2, and (\subref{bicuar:nmds_envfit_34}) 3 and 4 of the NMDS ordination of species composition of one hectare plots, showing the variation in plot species composition within and among sites. Diamonds are plot scores coloured by site. The lengths of arrows indicating environmental factor fits to the first two ordination axes are scaled by R\textsuperscript{2}. Arrows point in the direction of increasing values of that environmental factor. Note that Climatic Water Deficit (CWD) is expressed in more intuitively as the negative inverse of CWD, thus larger values indicate higher levels of CWD.}
+	\caption[NMDS ordination of species composition]{Environmental factors fitted to (\subref{bicuar:nmds_envfit_12}) axes 1 and 2, and (\subref{bicuar:nmds_envfit_34}) axes 3 and 4 of the NMDS ordination of plot species composition. Diamonds are plot scores coloured by site. Arrows indicate environmental fits, scaled by R\textsuperscript{2}. Climatic Water Deficit (CWD) is expressed more intuitively as the inverse of CWD, thus larger values indicate higher CWD.}
 	\label{bicuar:nmds_envfit}
 \end{figure}
 
@@ -272,10 +272,7 @@ The woodlands of Bicuar National Park represent an important woodland refuge at 
 
 \begin{supplement}
 
-\vspace{\baselineskip}
-\begin{minipage}{\linewidth}
-	\lstinputlisting[label=bicuar:diam_est,language=R,caption={[Stem taper diameter estimation]R function to estimate stem diameter at 1.3 m from a model of tree taper}]{inc/diam_est.R}
-\end{minipage}
+\lstinputlisting[float, floatplacement=p, label=bicuar:diam_est,language=R,caption={[Stem taper diameter estimation]R function to estimate stem diameter at 1.3 m from a model of tree taper}]{inc/diam_est.R}
 
 \end{supplement}
 

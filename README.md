@@ -16,7 +16,7 @@ This directory contains a directory structure and associated styling files for a
 * `-s` - compile a named chapter by referencing its directory. e.g. `./compile.sh -s chapters/introduction`
 * `-f` - sets the format argument, either `0` for submission (default), or `1` for a "nicer" layout with smaller margins, a serif'ed font, and single spaced lines.
 
-`main.tex` contains the top-level `.tex` skeleton file which calls all other files. Can be altered to include new chapters, or to change the order of chapters.
+`main.tex` contains the top level `.tex` skeleton file which calls all other files. Can be altered to include new chapters, or to change the order of chapters.
 
 `frontmatter/` contains various `.tex` snippets used in the frontmatter of the main thesis: title page (`ttl.tex`), acknowledgements (`ack.tex`), etc.
 
@@ -51,7 +51,8 @@ This directory contains a directory structure and associated styling files for a
 * `pagefmt_submission.tex` defines page layout which adheres to thesis submission guidelines
 * `pagefmt_nice.tex` defines page layout for a "nicer" layout
 * `chapter.tex` contains a skeleton to create individually formatted chapters. 
-* `definitions.tex` contains thesis-level LaTeX variables: thesis title, author name, thesis date, etc.
+* `definitions.tex` contains thesis level LaTeX variables: thesis title, author name, thesis date, etc.
+* `code_format.tex` contains formatting rules for code chunks placed by `lstinputlisting{}`
 
 ![Directory and dependency structure for `main.tex`](drawio/struc.png)
 
@@ -73,7 +74,7 @@ Various packages are used to create this template:
 
 `graphicx` for including images.
 
-`float` for managing floats with `[H]`.
+`float` for managing floats.
 
 `caption` for custom caption formatting.
 
@@ -118,6 +119,10 @@ Various packages are used to create this template:
 `enumitem` for custom lists such as author affiliations at the start of chapters adapted from published articles.
 
 `microtype` magically improves text justification.
+
+`listings` for including code chunks
+
+`tikz` for creating path diagrams.
 
 # Differences between 'submission' and 'nice' layouts
 
