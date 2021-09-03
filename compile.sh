@@ -56,12 +56,35 @@ chp_compile() {
 	mkdir -p $tmpdir/out
 
 	# Run latex
-	pdf $tmpdir/chapter.tex out/${chpbase} $2
+	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=out/biblist $tmpdir/chapter.tex
 
 	# Copy output to out directory
 	mv $tmpdir/out/* out 
 
-	# Remove tmp file
+	# Remove tmp directory
+	rm -r $tmpdir
+}
+
+bib_compile() {
+	# Create temp dir
+	tmpdir=$(mktemp -d)
+
+	# Copy bib file
+	cp main.bib $tmpdir
+
+	# Copy bib template
+	cp snippets/biblist.tex $tmpdir
+
+	# Create output directory
+	mkdir -p $tmpdir/out
+
+	# Run latex
+	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=out/biblist $tmpdir/biblist.tex
+
+	# Copy output to out directory
+	mv $tmpdir/out/* out
+
+	# Remove tmp directory
 	rm -r $tmpdir
 }
 
@@ -72,11 +95,12 @@ mkdir -p out
 fmt=0
 thesis=0
 chapters=0
+biblist=0
 single="0"
 clean=0
 
 # Parse flags
-while getopts ":f:tps:c" opt; do
+while getopts ":f:tpbs:c" opt; do
 	case "${opt}" in
   	f) 
   		fmt=$OPTARG
@@ -92,6 +116,9 @@ while getopts ":f:tps:c" opt; do
 		;;
 	c)
 		clean=1
+		;;
+	b)
+		biblist=1
 		;;
 	\?)
 		echo "Invalid option: -$OPTARG" 
@@ -131,6 +158,12 @@ fi
 if [ "$single" != "0" ]; then
 	echo "Compiling a single chapter"
 	chp_compile $single $fmt
+fi
+
+# Bibliography
+if [ "$biblist" -eq 1 ]; then
+	echo "Creating list of references"
+	bib_compile
 fi
 
 # Clean intermediate

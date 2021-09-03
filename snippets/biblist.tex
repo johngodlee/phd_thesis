@@ -1,0 +1,52 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+\usepackage{csquotes}
+
+\usepackage{microtype}
+
+\usepackage{geometry}
+\geometry{left=2.54cm,
+	right=2.54cm,
+	top=2.54cm,
+	bottom=2.54cm}
+\parskip 0.15cm % Paragraph spacing
+\setlength{\parindent}{0cm} % No paragraph indenting
+
+% Line spacing
+\usepackage{setspace}
+\singlespacing
+
+% Font
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+\usepackage[natbib, 
+	style=authoryear, 
+	uniquename=false, 
+	uniquelist=false,
+	maxcitenames=2, 
+	mincitenames=1, 
+	minbibnames=10, 
+	maxbibnames=10, 
+	dashed=false,
+	giveninits=true,
+	backend=biber]{biblatex}
+\renewcommand*\finalnamedelim{\addspace\&\space}
+\addbibresource{main.bib}
+\renewcommand*{\bibfont}{\footnotesize}	
+
+\usepackage[hidelinks, breaklinks]{hyperref}
+
+\title{Bibliography}
+\date{}
+
+\begin{document}
+
+\maketitle{}
+
+\nocite{*}
+\printbibliography[heading=none]{}
+
+\end{document}
