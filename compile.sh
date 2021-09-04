@@ -2,7 +2,7 @@
 
 # Define usage function
 usage() {
-	echo "Usage: $0 [-c (clean) -p (all chapters) -s (single chapter) -t (thesis) -f (formatting, 0=submission, 1=nice)]" 
+	echo "Usage: $0 [-c (clean) -p (all chapters) -s (single chapter) -t (thesis) -b (bibliography) -f (formatting, 0=submission, 1=nice)]" 
 	exit 1
 }
 
@@ -56,7 +56,7 @@ chp_compile() {
 	mkdir -p $tmpdir/out
 
 	# Run latex
-	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=out/biblist $tmpdir/chapter.tex
+	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=out/${chpbase} $tmpdir/chapter.tex
 
 	# Copy output to out directory
 	mv $tmpdir/out/* out 
@@ -135,8 +135,7 @@ done
 # Clean intermediate
 if [ "$clean" -eq 1 ]; then
 	echo "Cleaning intermediate tex files"
-	cd out
-	latexmk -c *.pdf
+	latexmk -c out/*.pdf
 fi
 
 # Thesis
@@ -169,8 +168,7 @@ fi
 # Clean intermediate
 if [ "$clean" -eq 1 ]; then
 	echo "Cleaning intermediate tex files"
-	cd out
-	latexmk -c *.pdf
+	latexmk -c out/*.pdf
 fi
 
 # If script fails, remove any temp directories 
