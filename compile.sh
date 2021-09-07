@@ -2,7 +2,7 @@
 
 # Define usage function
 usage() {
-	echo "Usage: $0 [-c (clean) -p (all chapters) -s (single chapter) -t (thesis) -b (bibliography) -f (formatting, 0=submission, 1=nice)]" 
+	echo "Usage: $0 [-c (clean) -p (all chapters) -s (single chapter) -t (thesis) -b (bibliography) -g (compress) -f (formatting, 0=submission, 1=nice)]" 
 	exit 1
 }
 
@@ -88,6 +88,13 @@ bib_compile() {
 	rm -r $tmpdir
 }
 
+# Compress
+compress_pdf() {
+	out="${1%.*}_compress.pdf"
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$out $1
+}
+
+
 # Ensure out directory exists
 mkdir -p out
 
@@ -98,9 +105,10 @@ chapters=0
 biblist=0
 single="0"
 clean=0
+compress="0"
 
 # Parse flags
-while getopts ":f:tpbs:c" opt; do
+while getopts ":f:tpbg:s:c" opt; do
 	case "${opt}" in
   	f) 
   		fmt=$OPTARG
@@ -119,6 +127,9 @@ while getopts ":f:tpbs:c" opt; do
 		;;
 	b)
 		biblist=1
+		;;
+	g)
+		compress=$OPTARG
 		;;
 	\?)
 		echo "Invalid option: -$OPTARG" 
@@ -163,6 +174,12 @@ fi
 if [ "$biblist" -eq 1 ]; then
 	echo "Creating list of references"
 	bib_compile
+fi
+
+# Compress files
+if [ "$compress" != "-" ]; then
+	echo "Compressing file"
+	compress_pdf $compress
 fi
 
 # Clean intermediate
