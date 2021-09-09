@@ -2,8 +2,16 @@
 
 # Define usage function
 usage() {
-	echo "Usage: $0 [-c (clean) -p (all chapters) -s (single chapter) -t (thesis) -b (bibliography) -g (compress) -f (formatting, 0=submission, 1=nice)]" 
-	exit 1
+	echo "Usage: $0 [-c] [-p] [-s <dir>] [-t] [-b] [-g <file>] [-f]
+
+-c	clean intermediate .tex files
+-p	compile all chapters 
+-s	compile a single chapter, given directory of chapter (<dir>)
+-t	compile thesis
+-b	compile bibliography
+-g	compress a .pdf file, given file path (<file>)
+-f	use pretty formatting instead of submission formatting
+"
 }
 
 # If no flags, quit
@@ -108,10 +116,10 @@ clean=0
 compress="0"
 
 # Parse flags
-while getopts ":f:tpbg:s:c" opt; do
+while getopts "ftpbg:s:c" opt; do
 	case "${opt}" in
   	f) 
-  		fmt=$OPTARG
+  		fmt=1
   		;;
 	t)
 		thesis=1
@@ -177,7 +185,7 @@ if [ "$biblist" -eq 1 ]; then
 fi
 
 # Compress files
-if [ "$compress" != "-" ]; then
+if [ "$compress" != "0" ]; then
 	echo "Compressing file"
 	compress_pdf $compress
 fi

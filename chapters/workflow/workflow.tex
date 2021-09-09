@@ -394,12 +394,39 @@ An adapted version of the iterative Hegyi index ($H_{i}$) was used to estimate t
 	H_{i} = log\sum_{j=1}^{n} (\frac{1}{L_{ij}} D_{j})
 \end{equation}
 
-Where $n$ is the number of trees with canopy material within the subplot, $D_{j}$ is the diameter of stem $j$ and $L_{ij}$ is the distance of stem $j$ from the subplot centre $i$. $H_{i}$ uses an iterative method for choosing active canopy occupants at the subplot centre, where the nearest individual to the subplot centre from each of 12 equally sized sectors is classified as the active stem (\autoref{workflow:hegyi}). $H_{i}$ was preferred over stem density to describe stem crowding in subplots because it is sensitive to how close a stem is to the subplot centre, which will affect canopy closure even if the number of stems in the subplot remains the same. 
+Where $n$ is the number of trees with canopy material within the subplot, $D_{j}$ is the diameter of stem $j$ and $L_{ij}$ is the distance of stem $j$ from the subplot centre $i$. $H_{i}$ uses an iterative method for choosing active canopy occupants at the subplot centre, where the nearest individual to the subplot centre from each of 12 equally sized sectors is classified as the active stem (\autoref{workflow:hegyi}). $H_{i}$ was preferred over stem density to describe stem crowding in subplots because it is sensitive to how close a stem is to the subplot centre, which will affect canopy closure even if the number of stems in the subplot remains the same. $H_{i}$ increases with stem diameter and number of stems, and decreases with the distance of those stems from the sample points (\autoref{workflow:hegyi_param}).
 
 \begin{figure}
 	\includegraphics[width=0.6\linewidth]{img/hegyi}
-	\caption[Schematic diagram illustrating the iterative Hegyi index]{Schematic diagram demonstrating use of the Iterative Hegyi index to assess crowding within each subplot. The 10 metre diameter subplot is divided into 12 equally sized sectors. Within each sector, the nearest stem of sufficient size (>5 cm diameter) to the subplot centre is recorded (e.g. 1). All stems with any canopy material inside the subplot are valid (e.g. 2). Stem 4 is not valid as it is behind stem 3. Stem 5 is invalid as all its canopy is outside the subplot. Stem 6 is too small to be recorded.}
+	\caption[Schematic diagram illustrating the iterative Hegyi index]{Schematic diagram demonstrating use of the iterative Hegyi index to assess crowding within each subplot. The 10 metre diameter subplot is divided into 12 equally sized sectors. Within each sector, the nearest stem of sufficient size (>5 cm diameter) to the subplot centre is recorded (e.g. 1). All stems with any canopy material inside the subplot are valid (e.g. 2). Stem 4 is not valid as it is behind stem 3. Stem 5 is invalid as all its canopy is outside the subplot. Stem 6 is too small to be recorded.}
 	\label{workflow:hegyi}
+\end{figure}
+
+\begin{figure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/hegyi_inc_diam}
+		\caption{}
+		\label{workflow:hegyi_inc_diam}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/hegyi_inc_dist}
+		\caption{}
+		\label{workflow:hegyi_inc_dist}
+	\end{subfigure} \\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/hegyi_inc_points}
+		\caption{}
+		\label{workflow:hegyi_inc_points}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/hegyi_inc_diam_var}
+		\caption{}
+		\label{workflow:hegyi_inc_diam_var}
+	\end{subfigure}
+	\caption[Variation in the iterative Hegyi index with parameters]{Variation in the iterative Hegyi index with: increasing diameter ($D_{j}$) of 12 equally distant stems (a), increasing distance ($L_{ij}$) of 12 stems of equal stem diameter (b), increasing number ($n$) of equally distant stems with equal diameter (c), and increasing variance in stem diameter ($\sigma{}D_{j}$), measured by drawing 12 random samples from a log normal distribution with increasing standard deviation, and a mean of 5, repeated 100 times (d).}
+	\label{workflow:hegyi_param}
 \end{figure}
 
 \newpage{}
