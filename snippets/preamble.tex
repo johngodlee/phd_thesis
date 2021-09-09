@@ -112,10 +112,10 @@
 
 % Optional page layouts with different fonts and page layout
 % Default is pagefmt_submission.tex
-\ifdefined\nicefmt
-	\ifcase\nicefmt\relax
+\ifdefined\prettyfmt
+	\ifcase\prettyfmt\relax
 		\input{snippets/pagefmt_submission.tex}\or
-		\input{snippets/pagefmt_nice.tex}\else
+		\input{snippets/pagefmt_pretty.tex}\else
 		\input{snippets/pagefmt_submission.tex}\fi
 \else
 	\input{snippets/pagefmt_submission.tex}

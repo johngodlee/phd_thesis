@@ -21,7 +21,7 @@ fi
 
 # Define latexmk function
 pdf () {
-	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=$2 -pretex="\def\nicefmt{$3}" -usepretex $1
+	latexmk -cd -pdf -bibtex -pdflatex="pdflatex --shell-escape -interaction=nonstopmode" -jobname=$2 -pretex="\def\prettyfmt{$3}" -usepretex $1
 }
 
 # Define chapter compilation function

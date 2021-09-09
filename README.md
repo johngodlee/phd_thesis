@@ -14,11 +14,21 @@ This directory contains a directory structure and associated styling files for a
 * `-t` - compile thesis
 * `-p` - compile all individual chapters
 * `-s` - compile a named chapter by referencing its directory. e.g. `./compile.sh -s chapters/introduction`
-* `-f` - sets the format argument, either `0` for submission (default), or `1` for a "nicer" layout with smaller margins, a serif'ed font, and single spaced lines.
+* `-b` - compile the bibliography of the thesis into a separate document
+* `-g` - compress a pdf file, providing its file path
+* `-f` - sets the format to 'pretty' rather than 'submission'. See below differences between 'pretty' and 'submission' formats.
 
 `main.tex` contains the top level `.tex` skeleton file which calls all other files. Can be altered to include new chapters, or to change the order of chapters.
 
-`frontmatter/` contains various `.tex` snippets used in the frontmatter of the main thesis: title page (`ttl.tex`), acknowledgements (`ack.tex`), etc.
+`frontmatter/` contains various `.tex` snippets used in the frontmatter of the main thesis: 
+
+* `abb.tex` - abbreviations 
+* `abs.tex` - abstract
+* `ack.tex` - acknowledgements 
+* `ctl.tex` - individual chapter title page used by `-p` and `-s`
+* `dec.tex` - declaration
+* `lay.tex` - lay summary
+* `ttl.tex` - title page
 
 `img/` contains common images used in the thesis.
 
@@ -47,12 +57,13 @@ This directory contains a directory structure and associated styling files for a
 
 `snippets/` contains bits of code used to compile the thesis:
 
-* `preamble.tex` contains all the preamble material used for the thesis. It is also called by `chapter.tex`.
-* `pagefmt_submission.tex` defines page layout which adheres to thesis submission guidelines
-* `pagefmt_nice.tex` defines page layout for a "nicer" layout
-* `chapter.tex` contains a skeleton to create individually formatted chapters. 
+* `biblist.tex` defines page layout for the bibliography, used by `-b`.
+* `chapter.tex` contains a skeleton to create individually formatted chapters, used by `-p` and `-s`.
+* `code_format.tex` contains formatting rules for code chunks placed by `lstinputlisting{}`.
 * `definitions.tex` contains thesis level LaTeX variables: thesis title, author name, thesis date, etc.
-* `code_format.tex` contains formatting rules for code chunks placed by `lstinputlisting{}`
+* `pagefmt_pretty.tex` defines page layout for a 'pretty' layout, used by `-f`.
+* `pagefmt_submission.tex` defines page layout which adheres to thesis submission guidelines.
+* `preamble.tex` contains all the preamble material used for the thesis. It is also called by `chapter.tex`.
 
 ![Directory and dependency structure for `main.tex`](drawio/struc.png)
 
@@ -124,20 +135,20 @@ Various packages are used to create this template:
 
 `tikz` for creating path diagrams.
 
-# Differences between 'submission' and 'nice' layouts
+# Differences between 'submission' and 'pretty' layouts
 
 * Margins
 	* Submission: left=4cm, right=2.5cm, top=2cm, bottom=4cm
-	* Nice: left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm
+	* Pretty: left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm
 * Font
 	* Submission: `helvet` (Helvetica-ish)
-	* Nice: `lmodern` (Computer-modern-ish)
+	* Pretty: `lmodern` (Computer-modern-ish)
 * Line spacing
 	* Submission: `singlespacing`
-	* Nice: `onehalfspacing`
+	* Pretty: `onehalfspacing`
 * Indent and parskip
 	* Submission: default
-	* Nice: `\parskip 0.15cm`, `\parindent 0cm`
+	* Pretty: `\parskip 0.15cm`, `\parindent 0cm`
 
 # Extras
 
