@@ -169,6 +169,7 @@ Here we explored how tree species diversity, composition and woodland structure 
 \setstretch{1.0}
 \printbibliography[heading=subbibintoc]
 \endgroup
+\newpage{}
 
 \section{Supplementary material}
 \label{phen:sec:supp}
@@ -182,20 +183,24 @@ Here we explored how tree species diversity, composition and woodland structure 
 
 \input{inc/vipphen_compare.tex}
 
+\begin{landscape}
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{img/phen_bivar}
+	\includegraphics[width=0.9\linewidth]{img/phen_bivar}
 	\caption[Bivariate comparison of phenological metrics]{Scatter plots showing pairwise comparisons of the six phenological metrics used in this study, extracted from the MODIS MOD13Q1 product \citep{MOD13Q1}. Points represent study sites and are coloured by vegetation cluster. Linear regression line of best fit for all sites is shown as a black line, while linear regressions are shown for each vegetation cluster as coloured lines.}
 	\label{phen:phen_bivar}
 \end{figure}
-
-\setlength\tabcolsep{2pt} 
-\input{inc/all_mod_sel.tex}
-\setlength\tabcolsep{6pt} 
+\end{landscape}
 
 \renewcommand{\arraystretch}{0.8}
 \input{inc/lsq_terms.tex}
 
 \input{inc/tukey_terms.tex}
+\renewcommand{\arraystretch}{1}
+
+\FloatBarrier{}
+\setlength\tabcolsep{2pt} 
+\input{inc/all_mod_sel.tex}
+\setlength\tabcolsep{6pt} 
 
 \end{supplement} 
 
