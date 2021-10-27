@@ -2,7 +2,7 @@
 
 # Define usage function
 usage() {
-	echo "Usage: $0 [-c] [-p] [-s <dir>] [-t] [-b] [-g <file>] [-f]
+	echo "Usage: $0 [-c] [-p] [-s <dir>] [-t] [-b] [-g <file>] [-i <file>] [-f]
 
 -c	clean intermediate .tex files
 -p	compile all chapters 
@@ -10,6 +10,7 @@ usage() {
 -t	compile thesis
 -b	compile bibliography
 -g	compress a .pdf file, given file path (<file>)
+-i	create a colour pages only copy of a .pdf file, given file path (<file>)
 -f	use pretty formatting instead of submission formatting
 "
 }
@@ -99,8 +100,28 @@ bib_compile() {
 # Compress
 compress_pdf() {
 	out="${1%.*}_compress.pdf"
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$out $1
+	if [ ! -f "${1}" ]; then
+    	echo "Input file not found"
+	else
+		gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=$out $1
+	fi
 }
+
+colour_pdf() {
+	out="${1%.*}_colour.pdf"
+	if [ ! -f "${1}" ]; then
+    	echo "Input file not found"
+	else 
+		pages=$(gs -o - -sDEVICE=inkcov "${1}" | tail -n +6 | sed '/^Page*/N;s/\n//' | sed -E '/Page [0-9]+ 0.00000  0.00000  0.00000  / d' | grep -Eo '^Page\s[0-9]+' | awk '{print $2}' | tr '\n' ',' | sed 's/,$//g')
+
+		if [ -z "${pages}" ]; then
+			echo "File has no colour pages"
+		else 
+			pdfjam "${1}" ${pages} -o "${out}" &> /dev/null
+		fi
+	fi
+}
+
 
 
 # Ensure out directory exists
@@ -114,9 +135,10 @@ biblist=0
 single="0"
 clean=0
 compress="0"
+colour="0"
 
 # Parse flags
-while getopts "ftpbg:s:c" opt; do
+while getopts "ftpbg:s:i:c" opt; do
 	case "${opt}" in
   	f) 
   		fmt=1
@@ -138,6 +160,9 @@ while getopts "ftpbg:s:c" opt; do
 		;;
 	g)
 		compress=$OPTARG
+		;;
+	i)
+		colour=$OPTARG
 		;;
 	\?)
 		echo "Invalid option: -$OPTARG" 
@@ -188,6 +213,12 @@ fi
 if [ "$compress" != "0" ]; then
 	echo "Compressing file"
 	compress_pdf $compress
+fi
+
+# Compress files
+if [ "$colour" != "0" ]; then
+	echo "Creating colour pages only file"
+	colour_pdf $colour
 fi
 
 # Clean intermediate
