@@ -47,7 +47,7 @@ africa_bbox[3] <- x_max
 africa_bbox[4] <- y_max
 
 # Crop africa countries to bbox
-saf <- st_crop(africa, africa_bbox)
+saf <- st_crop(st_make_valid(africa), africa_bbox)
 
 # Get Zambia 
 zmb <- saf %>%
@@ -56,7 +56,7 @@ zmb <- saf %>%
 # Get Bicuar and Mtarure locations
 tls <- data.frame(
   id = c("Bicuar", "Bicuar", "Mtarure"), 
-  ch = c("5", "6", "5"),
+  ch = c("5", "7", "5"),
   lon = c(14.81, 14.81, 39.00),
   lat = c(-15.29, -15.29, -8.972))
 
@@ -88,7 +88,7 @@ thesis_map <- ggplot() +
   geom_label_repel(data = tls, 
     aes(x = lon, y = lat, label = ch, fill = ch),
     point.padding = 0, box.padding = 0, size = 6) + 
-  scale_fill_manual(values = c("#4daf4a", "#EE854A")) + 
+  scale_fill_manual(values = c("#4daf4a", "#ffce86")) + 
   theme_bw() + 
   theme(legend.position = "none") + 
   labs(x = "", y = "")

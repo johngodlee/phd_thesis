@@ -10,7 +10,7 @@ library(patchwork)
 library(rnaturalearth)
 
 # Import data
-white <- st_read("/Volumes/seosaw_spat/whitesveg/whiteveg_poly_joined.shp")
+white <- st_read("/Volumes/john/whiteveg/whiteveg_poly_joined.shp")
 
 teow <- st_read("/Volumes/seosaw_spat/teow/Ecoregions2017.shp")
 
